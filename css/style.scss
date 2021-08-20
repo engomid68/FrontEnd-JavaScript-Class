@@ -1,0 +1,479 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    body {
+        font-family: serif;
+        width: 100%;
+        min-height: 100vh;
+        font-size: 1rem;
+        overflow: hidden;
+        line-height: 1.5;
+        font-weight: 400;
+        color: #212529;
+        text-align: left;
+    }
+}
+
+.container {
+    height: 100vh;
+    width: 100%;
+    overflow: scroll;
+}
+
+//$bp = BreakPoint
+$bp: (
+    mobile: 480px,
+    bikes: 683px,
+    tablet: 768px,
+    laptop: 1440px,
+);
+
+@mixin query($screen) {
+    @each $keys, $values in $bp {
+        @if ($screen == $keys) {
+            @media (max-width: $values) {//only screen ,
+                @content;
+            }
+        }
+    }
+}
+
+.header {
+    display: flex;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: lightblue;
+    height: 10vh;
+    /**************************** New change */
+    // padding: 0px 10px;
+    padding: 15px;
+    /**************************** End New change */
+    width: 100%;
+
+    // &__logo { }
+
+    &__btn {
+        display: none;
+    }
+
+    &__menu {
+        display: flex;
+        flex-direction: row;
+        z-index: 1000;
+        [class^="item-"] {
+            padding-left: 15px;
+            cursor: pointer;
+        }
+    }
+}
+
+.row:after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+.menu ul {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.menu li {
+    padding: 8px;
+    margin-bottom: 7px;
+    background: #33b5e5;
+    color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12) , 0 1px 2px rgba(0 ,0 ,0 ,0.24);
+}
+
+.menu li:hover {
+    background-color: #0099cc;
+}
+
+.aside {
+    background-color: #33b5e5;
+    padding: 15px;
+    color: #ffffff;
+    text-align: center;
+    font-size: 14px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12) , 0 1px 2px rgba(0 ,0 ,0 ,0.24);
+}
+
+.modal {
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.Dot3 {
+    visibility: hidden;
+}
+
+#Loading {
+    display: flex;
+    justify-content: center;
+    place-content: center;
+    width: 25%;
+}
+
+.table {
+    width: 100%;
+}
+
+@include query(bikes) {
+    .edit,
+    .delete,
+    .color {
+        display: none;
+    }
+
+    .EditContent:after {
+        content: "...";
+        cursor: pointer;
+    }
+
+    .EditContent__a {
+        display: none;
+    }
+
+    .modal .m-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 500px;
+        min-height: 300px;
+        height: auto;
+        margin: 0 auto;// auto
+        position: relative;
+        border-radius: 5px;
+        margin-top: 120px;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .modal .m-container.sm-modal {
+        max-width: 300px;
+    }
+
+    .modal .m-container.l-modal {
+        max-width: 800px;
+    }
+
+    .modal .m-container.xl-modal {
+        max-width: 80%;
+    }
+
+    .modal .m-container.full-modal {
+        max-width: 100%;
+    }
+
+    .modal .m-container.bounce {
+        transform: scale(0.4);
+        transition: all 0.3s cubic-bezier(0.75, -0.5, 0, 2.75);
+    }
+    
+    .modal .m-container .m-title {
+        background-color: #262626;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: auto;
+        width: 100%;
+        margin: 0;
+        padding: 10px 20px;
+        border-radius: 5px 5px 0 0;
+        color: #f2f2f2;
+        font-weight: 500;
+        font-size: 18px;
+        flex-wrap: wrap;
+    }
+
+    .modal .m-container .m-close {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        height: 25px;
+        width: 25px;
+        right: -7px;
+        top: -7px;
+        padding: 0;
+        margin: 0;
+        background-color: #f2f2f2;
+        border-radius: 50%;
+        transform: rotate(45deg);
+        cursor: pointer;
+        box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+    }
+
+    .modal .m-container .m-close:after,
+    .modal .m-container .m-close:before {
+        content: "";
+        display: block;
+        position: absolute;
+        background-color: #262626;
+        border-radius: 3px;
+    }
+
+    .modal .m-container .m-close:after {
+        width: 2px;
+        height: 16px;
+    }
+
+    .modal .m-container .m-close:before {
+        width: 16px;
+        height: 2px;
+    }
+    
+    .modal .m-container .m-content {
+        display: flex;
+        flex-direction: row;
+        // flex-wrap: wrap;
+        // gap: 10px;
+        border: 3px solid hotpink;
+        justify-content: space-between;
+        background-color: rgb(170, 16, 16);
+        min-height: 300px;
+        width: 100%;
+        height: 5vh;
+        margin: 0;
+        padding: 20px;
+        border-radius: 0 0 5px 5px;
+        [class ^="boxes-"]{
+            display: flex;
+            border: 5px solid lightgreen;
+            overflow: hidden;
+        }
+    
+    }  
+    
+    .boxes-1, .boxes-2, .boxes-3, .boxes-4 {
+        width: 30%;
+    }
+
+    .modal .m-container .m-content .m-footer {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin-top: 10px;
+        flex-wrap: wrap;
+    }
+
+    .modal.active {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .modal.active .m-container {
+        opacity: 1;
+    }
+
+    .modal.active .m-container.bounce {
+        transform: scale(1);
+    }
+
+    .column1 {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 825px;
+        // height: 21vh;
+    }
+    .column2 {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 50%;
+        // height: 21vh;
+    }
+    .btn-modal , .Dot3 {
+        cursor: pointer;
+        font-family: serif;
+        visibility: visible;
+    }
+
+    // .btn-modal .Dot3 {
+    //     visibility: visible;
+    // }
+
+    // **************************************   Modal Box End  ***************************************
+}
+
+@include query(tablet) {
+    .header {
+        justify-content: center;
+
+        &__logo {
+            cursor: pointer;
+        }
+
+        &__btn {
+            display: flex;
+            position: absolute;
+            right: 10px;
+            font-style: 40px;
+        }
+
+        &__menu {
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            position: absolute;
+            right: 0px;
+            top: 10vh;
+            background-color: lightpink;
+            width: 100%;
+            height: 80vh;
+            transition: all 0.4s ease;
+        }
+    }
+// *************************************** new change
+    .aside, .right {
+        width: 100% !important;
+    }
+    .col-2 {
+        width: 25%;
+    }
+    .col-8 {
+        width: 75%;
+    }
+// *************************************** end new change
+    .footer {
+        &__menu {
+            [class^="menu-"] {
+                display: none;
+            }
+        }
+    }
+}
+
+@include query(mobile) {
+    .container {
+        overflow: scroll;
+    }
+    .header {
+        justify-content: center;
+
+        &__logo {
+            cursor: pointer;
+        }
+
+        &__btn {
+            display: flex;
+            position: absolute;
+            right: 10px;
+            font-style: 40px;
+        }
+
+        &__menu {
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            position: absolute;
+            right: 0px;
+            top: 10vh;
+            background-color: lightpink;
+            width: 100%;
+            height: 90vh;
+            z-index: -1;
+            transition: all 0.4s ease;
+        }
+    }
+
+/****************************  New change */
+
+    [class ^="col-"] {
+        width: 100%;
+    }
+/**************************** End New change */
+
+
+    .footer {
+        &__menu {
+            [class^="menu-"] {
+                display: none;
+            }
+        }
+    }
+}
+
+@include query(laptop) {
+}
+
+.hide {
+    display: none;
+}
+
+.slide {
+    right: -100%;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: lightblue;
+    height: 10vh;
+    padding: 0px 10px;
+    width: 100%;
+    &__menu {
+        display: flex;
+        flex-direction: row;
+        [class^="menu-"] {
+            padding-left: 15px;
+            cursor: pointer;
+        }
+    }
+}
+
+//form validation
+.main-section {
+    padding: 15px;
+    background: #f1f1f1;
+}
+
+.custom-file-control::after {
+    content: "Choose file...";
+}
+
+.custom-file-control::before {
+    content: "Browse";
+}
+//End form validation
+
+.response {
+    overflow: scroll;
+    height: 60vh;
+}
+
+table,
+th,
+td {
+    border: 1px solid red;
+}
+/****************************  New change */
+
+/**************************** End New change */
+//Modal Box start
+[class ^="boxes-"]{
+    display: none;
+}
+
