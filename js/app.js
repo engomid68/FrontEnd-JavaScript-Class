@@ -10,15 +10,24 @@ const httpService = new HttpService();
 */
 const appViewer = new AppViewer(httpService);
 
+// Load.
 window.addEventListener('load', (e) => {
     appViewer.appStart();
 });
 
-///for changing behavior of click on Delete Button
-function myMousedownFunction(e,id) { 
-    e.value = "Wating...";
-    e.disabled = true;
-    appViewer.functionDel(id);
-}
+// DeleteButton = document.getElementById('delete');
 
-// Load.
+///for changing behavior of click on Delete Button
+addEventListener('click', function (event) {
+    let btnDelete = document.getElementById('delete');
+    let btnEdit = document.getElementById('edit');
+    let trId = document.getElementById('id');
+    event.preventDefault();
+    console.log(trId);
+    alert("Welcome to delet Button");
+    // e.value = "Wating...";
+    // e.disabled = true;
+    // appViewer.functionDel(id);
+})
+
+

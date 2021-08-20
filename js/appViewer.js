@@ -50,8 +50,8 @@ export default class AppViewer {
                                     </div>
                             </td>`;
             tr.innerHTML += `<td class="color">${el.color} </td>`;
-            tr.innerHTML += `<td class="delete"><input type="button" value="DELETE" onmousedown="myMousedownFunction(this,${el.id})" class="delete" id="btn-delete" /></td>`;
-            tr.innerHTML += `<td class="edit"><input type="button" value="EDIT" onmousedown="myMousedownFunction(this,${el.id})" id="btn-edit" class="edit" /></td>`;
+            tr.innerHTML += `<td class="delete"><input type="button" value="DELETE" class="delete" id="btn-delete" /></td>`;// onmousedown="myMousedownFunction(this,${el.id})" 
+            tr.innerHTML += `<td class="edit"><input type="button" value="EDIT" id="btn-edit" class="edit" /></td>`;
             output.append(tr);
         });
     }
