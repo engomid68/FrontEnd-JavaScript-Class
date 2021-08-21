@@ -10,7 +10,7 @@ export default class HttpService {
         return fetch(this.url).then(rep => {
             return rep.json();
         }).catch((err) => {
-            console.log("We can't connet to website :" + err);
+            console.log(`We can't connet to website :  ${err}`);
         })
     }
 
@@ -20,7 +20,7 @@ export default class HttpService {
         }).then((dataResponse) => {
             return dataResponse.json();
         }).catch((err) => {
-                console.log("We can't connet to website :" + err);
+                console.log(`We can't connet to website and Delete row :  ${err}`);
         });
     }
 

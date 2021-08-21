@@ -1,6 +1,6 @@
 import HttpService from './httpService.js';
 import AppViewer from './appViewer.js';
-// import Load from './Load.js'
+import ManageEvent from './manageEvent.js';
 
 const httpService = new HttpService();
 
@@ -11,23 +11,24 @@ const httpService = new HttpService();
 const appViewer = new AppViewer(httpService);
 
 // Load.
-window.addEventListener('load', (e) => {
-    appViewer.appStart();
-});
 
-// DeleteButton = document.getElementById('delete');
+/**
+ * @type {ClickEvent}
+ */
+const Controller = new ManageEvent(appViewer);
 
-///for changing behavior of click on Delete Button
-addEventListener('click', function (event) {
-    let btnDelete = document.getElementById('delete');
-    let btnEdit = document.getElementById('edit');
-    let trId = document.getElementById('id');
-    event.preventDefault();
-    console.log(trId);
-    alert("Welcome to delet Button");
-    // e.value = "Wating...";
-    // e.disabled = true;
-    // appViewer.functionDel(id);
-})
+Controller.appViewer.appStart();
+// Controller.appViewer.deleteData();
+
+
+
+// while (i--) {
+// if (potentialElements[i] === targetElement) {
+//     handler.call(targetElement, event);
+//     break;
+// }  
+
+
+
 
 

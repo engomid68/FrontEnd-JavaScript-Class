@@ -6,14 +6,13 @@ export default class AppViewer {
      * @param {HttpService} httpService 
      */
     constructor(httpService) {
-        this.httpService = httpService;
-        // isLoading = true;
+        this.httpService = httpService;    
+        
         this.isLoading = true;
         if (this.isLoading === true) {
             document.querySelector('.table').style.visibility  = 'hidden';
         }
-        
-        // console.log(isLoading);
+
     }
 
     appStart() {
@@ -36,7 +35,7 @@ export default class AppViewer {
         data.forEach((el, index) => {
             const bg = index % 2 == 0 ? '#eee' : '#fff';// different color each row
             const tr = document.createElement('tr');
-            tr.id = `${el.id}`;
+            // tr.id = `${el.id}`;
             tr.style.backgroundColor = bg;
             tr.innerHTML += `<td id="id">${el.id} </td>`;
             tr.innerHTML += `<td id="createdAt">${el.createdAt}</td>`;
@@ -50,8 +49,8 @@ export default class AppViewer {
                                     </div>
                             </td>`;
             tr.innerHTML += `<td class="color">${el.color} </td>`;
-            tr.innerHTML += `<td class="delete"><input type="button" value="DELETE" class="delete" id="btn-delete" /></td>`;// onmousedown="myMousedownFunction(this,${el.id})" 
-            tr.innerHTML += `<td class="edit"><input type="button" value="EDIT" id="btn-edit" class="edit" /></td>`;
+            tr.innerHTML += `<td class="delete"><input type="button" value="DELETE" class="delete" id="${el.id}" /></td>`;// onmousedown="myMousedownFunction(this,${el.id})" 
+            tr.innerHTML += `<td class="edit"><input type="button" value="EDIT" id="btn-edit" class="${el.id}" /></td>`;
             output.append(tr);
         });
     }
