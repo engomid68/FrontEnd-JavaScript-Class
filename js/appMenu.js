@@ -10,13 +10,13 @@ window.onload = function(e){
     
     myFunction =(x,y,z)=> {
         // console.log(x.addEventListener("click", myFunction));  
-        x.addEventListener("click",()=>{
+        y.addEventListener("click",()=>{
             x.classList.toggle("hide");
             y.classList.toggle("hide");
-            if (z == "slide-in"){
+            if (z == "slide-out"){
                 menu.classList.toggle("slide");
             }
-            if (z == "slide-out"){
+            if (z == "slide-in"){
                 menu.classList.toggle("slide");
             }
         })

@@ -25,14 +25,14 @@ export default class ManageEvent {
     }
 
     startGetting() {     
-        return this.appViewer.appStart();
+        this.appViewer.appStart();
     }
     
     checkingDel(e,id) {
         e.target.value = "Deleting...";
         e.target.disabled = true;
         alert("Your Request For Deleting is Successfully Sent With This ID = "+ id);
-        return this.appViewer.appStart(id);
+        this.appViewer.deleteData(id);
     }
     
     checkingEdit(e,id) {

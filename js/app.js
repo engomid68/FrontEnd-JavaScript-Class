@@ -18,15 +18,6 @@ const appViewer = new AppViewer(httpService);
 const Controller = new ManageEvent(appViewer);
 
 Controller.appViewer.appStart();
-// Controller.appViewer.deleteData();
-
-
-
-// while (i--) {
-// if (potentialElements[i] === targetElement) {
-//     handler.call(targetElement, event);
-//     break;
-// }  
 
 
 

@@ -6,7 +6,7 @@ export default class HttpService {
         this.url = environment.BASE_API + '/api/v1/bikes';
     }
 
-    getData() {
+    getBikes() {
         return fetch(this.url).then(rep => {
             return rep.json();
         }).catch((err) => {
@@ -23,5 +23,22 @@ export default class HttpService {
                 console.log(`We can't connet to website and Delete row :  ${err}`);
         });
     }
+
+    // post(url, body) {
+	// 	let api = environment.BASE_API + url;
+	// 	fetch(api, {
+	// 		method: 'POST',
+	// 		headers: this.getHeaders(),
+	// 		mode: 'cors', // no-cors, *cors, same-origin
+	// 		body: JSON.stringify({data: body})
+	// 	});		
+	// 	return await response.json();
+	// }
+
+	// getHeaders() {
+	// 	return {
+	// 		'Content-Type': 'application/json; charset=utf-8'
+	// 	}
+	// }
 
 }

@@ -16,7 +16,7 @@ export default class AppViewer {
     }
 
     appStart() {
-        this.httpService.getData()
+       return this.httpService.getBikes()
         .then((jsonResponse) => {
             // console.log(jsonResponse);
             this.arr = jsonResponse;
@@ -35,7 +35,7 @@ export default class AppViewer {
         data.forEach((el, index) => {
             const bg = index % 2 == 0 ? '#eee' : '#fff';// different color each row
             const tr = document.createElement('tr');
-            // tr.id = `${el.id}`;
+            tr.id = `${el.id}`;
             tr.style.backgroundColor = bg;
             tr.innerHTML += `<td id="id">${el.id} </td>`;
             tr.innerHTML += `<td id="createdAt">${el.createdAt}</td>`;
@@ -56,7 +56,7 @@ export default class AppViewer {
     }
     
     deleteData(id) {
-        this.httpService.functionDel(id)
+       return this.httpService.functionDel(id)
         .then((dataResponse) => {        
             let idx = this.arr.findIndex((arr) => arr.id === id)
             this.arr.splice(idx, 1);
