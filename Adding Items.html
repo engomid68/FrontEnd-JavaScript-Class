@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <link rel="stylesheet" href="css/grid.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/formControl.css">
+  
+  <script src="js/Slide-Menu.js"></script>
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="header">
+      <div class="header__logo">LOGO</div>
+
+      <div class="header__btn">
+
+        <i id="open" class='header__btn-open'>
+          <img src="Image/open.png">
+        </i>
+        <i id="close" class='header__btn-close hide'>
+            <img src="Image/close.png">
+        </i>
+
+      </div>
+
+      <div id="menu" class="header__menu slide">
+        <div class="item-1"><a href="index.html">Home</a></div>
+        <div class="item-2">About</div>
+        <div class="item-3">Service</div>
+        <div class="item-4"><a href="Contact.html">Contact</a></div>
+      </div>
+    </div>
+
+    <div class="row">
+
+      <div class="col-2 menu">
+        <ul>
+          <li>Menu-1</li>
+          <li>Menu-2</li>
+          <li>Menu-3</li>
+          <li>Menu-4</li>
+        </ul>
+      </div>
+
+      <div class="col-8">
+        <form>
+          <p>
+            <label for="n1">ID:</label>
+            <!-- The pattern attribute can act as a fallback for browsers which
+                 don't implement the number input type but support the pattern attribute.
+                 Please note that browsers that support the pattern attribute will make it
+                 fail silently when used with a number field.
+                 Its usage here acts only as a fallback -->
+            <input type="number" class="idNumber" min="1" max="1000" step="1" id="n1" name="id"
+                   pattern="\d+">
+          </p>
+          <!-- <p>
+            <label for="t1">What's your favorite fruit?<abbr title="This field is mandatory" aria-label="required">*</abbr></label>
+            <input type="text" id="t1" name="fruit" list="l1" required
+                   pattern="[Bb]anana|[Cc]herry|[Aa]pple|[Ss]trawberry|[Ll]emon|[Oo]range">
+            <datalist id="l1">
+              <option>Banana</option>
+              <option>Cherry</option>
+              <option>Apple</option>
+              <option>Strawberry</option>
+              <option>Lemon</option>
+              <option>Orange</option>
+            </datalist>
+          </p> -->
+          <p>
+            <label for="t2">CreatedAt?</label>
+            <input type="string" id="n2" name="email">
+          </p>
+          <p>
+            <label for="t2">what is your bike's name?</label>
+            <input type="name" id="n3" name="name">
+          </p>
+          <p>
+            <label for="t2">what is your bike's country?</label>
+            <input type="country" id="n4" name="country">
+          </p>
+          <p>
+            <label for="t2">what is your bike's color?</label>
+            <input type="email" id="n5" name="email">
+          </p>
+          <!-- <p>
+            <label for="t3">Leave a short message</label>
+            <textarea id="t3" name="msg" maxlength="140" rows="5"></textarea>
+          </p> -->
+          <p>
+            <button class="Aaa">Add New Bike</button>
+          </p>
+        </form>
+        <!-- <div class="mainContact">
+          <div class="box-1">
+            <form id="needs-validation" novalidate>
+              <div class="row">
+                <div class="col-lg-6 col-sm-6 col-12">
+                  <div class="form-group">
+                    <label class="text-inverse" for="validationCustom01">First Name</label>
+                    <input type="text" class="form-control" id="validationCustom01" placeholder="First name"
+                      value="First Name" required>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-sm-6 col-12">
+                  <div class="form-group">
+                    <label class="text-inverse" for="validationCustom02">Last Name</label>
+                    <input type="text" class="form-control" id="validationCustom02" placeholder="Last name"
+                      value="Last Name" required>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 col-sm-12 col-12">
+                  <div class="form-group">
+                    <label class="text-inverse" for="inputEmail4">Email</label>
+                    <input type="email" class="form-control" id="inputEmail4" placeholder="Email" required>
+                    <div class="invalid-feedback">
+                      Please provide a valid Email.
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-sm-6 col-12">
+                  <div class="form-group">
+                    <label class="text-inverse" for="inputpassword">Password</label>
+                    <input type="password" class="form-control" id="inputpassword" placeholder="password" required>
+                    <div class="invalid-feedback">
+                      Please provide a valid password.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6 col-sm-6 col-12">
+                  <div class="form-group">
+                    <label class="text-inverse" for="validationCustom03">City</label>
+                    <input type="text" class="form-control" id="validationCustom03" placeholder="City" required>
+                    <div class="invalid-feedback">
+                      Please provide a valid city.
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-sm-6 col-12">
+                  <div class="form-group">
+                    <label class="text-inverse" for="select-menu">Select any value</label>
+                    <select class="custom-select d-block form-control" id="image" required>
+                      <option value="">Open this select menu</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                    <div class="invalid-feedback">
+                      Please selected any option.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6 col-sm-6 col-12">
+                  <div class="form-group">
+                    <label class="custom-file">
+                      <input type="file" id="file" class="form-control custom-file-input" required>
+                      <span class="custom-file-control"></span>
+                      <div class="invalid-feedback">
+                        Please selected any File.
+                      </div>
+                    </label>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-sm-6 col-12">
+                  <div class="form-group">
+                    <label class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" required>
+                      <span class="custom-control-indicator"></span>
+                      <span class="custom-control-description">Check this custom checkbox</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6 col-sm-6 col-12">
+                  <div class="form-group">
+                    <label class="custom-control custom-radio">
+                      <input id="radioStacked1" name="radio-stacked" type="radio" class="custom-control-input" required>
+                      <span class="custom-control-indicator"></span>
+                      <span class="custom-control-description">Toggle this custom radio</span>
+                    </label>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-sm-6 col-12">
+                  <div class="form-group">
+                    <label class="custom-control custom-radio">
+                      <input id="radioStacked2" name="radio-stacked" type="radio" class="custom-control-input" required>
+                      <span class="custom-control-indicator"></span>
+                      <span class="custom-control-description">Or toggle this other custom radio</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-lg-12 col-sm-12 col-12 text-center">
+                  <button class="btn btn-info" type="submit">Submit form</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div> -->
+      </div>
+
+      <div class="col-2 right">
+        <div class="aside">
+          <h2>dolor sit amet?</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis, amet tempora
+            minima atque id modi.
+          </p>
+
+          <h2>where?</h2>
+          <p>dolor sit amet cing elit. Maiores, cumque.</p>
+
+          <h2>Why?</h2>
+          <p>adipisicing elit. Omnis, amet tempora
+            minima atque id modi.</p>
+
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer">
+      <div class="footer__menu">
+        <div class="menu-1">Home</div>
+        <div class="menu-2">About</div>
+        <div class="menu-3">Service</div>
+        <div class="menu-4">Contact</div>
+      </div>
+    </div>
+
+  </div>
+  <script src="js/app.js" type="module" defer></script>
+</body>
+
+</html>

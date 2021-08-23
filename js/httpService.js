@@ -14,31 +14,31 @@ export default class HttpService {
         })
     }
 
-    functionDel(id) {
+    deleteBike(id) {
         return fetch(`${this.url}/${id}`, {
             method: 'DELETE'
         }).then((dataResponse) => {
             return dataResponse.json();
         }).catch((err) => {
-                console.log(`We can't connet to website and Delete row :  ${err}`);
+                console.log(`We Can't Connet To Website For Deleting Row :  ${err}`);
         });
     }
 
-    // post(url, body) {
-	// 	let api = environment.BASE_API + url;
-	// 	fetch(api, {
-	// 		method: 'POST',
-	// 		headers: this.getHeaders(),
-	// 		mode: 'cors', // no-cors, *cors, same-origin
-	// 		body: JSON.stringify({data: body})
-	// 	});		
-	// 	return await response.json();
-	// }
+    postBike(data) {
+		let api = this.url;
+		return fetch(`${api}`, {
+			method: 'POST',
+			headers: this.getHeaders() ,
+			body: JSON.stringify(data),
+		}).catch((err) => {	
+            console.log(`We Can't Connet To Website For Adding New Row :  ${err}`);
+        });
+	}
 
-	// getHeaders() {
-	// 	return {
-	// 		'Content-Type': 'application/json; charset=utf-8'
-	// 	}
-	// }
+	getHeaders() {
+		return {
+			'Content-Type': 'application/json; charset=utf-8'
+		}
+	}
 
 }

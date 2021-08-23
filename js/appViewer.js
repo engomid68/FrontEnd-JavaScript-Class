@@ -10,7 +10,10 @@ export default class AppViewer {
         
         this.isLoading = true;
         if (this.isLoading === true) {
-            document.querySelector('.table').style.visibility  = 'hidden';
+            if(!!(document.querySelector('.table'))){
+                document.querySelector('.table').classList.add('hidden');
+            }
+            // document.querySelector('.table').style.visibility  = 'hidden';
         }
 
     }
@@ -23,15 +26,20 @@ export default class AppViewer {
             console.log(this.arr);
             this.isLoading = false;
             if (this.isLoading === false) {
-                document.querySelector('#Loading').style.display = 'none';
-                document.querySelector('.table').style.visibility  = 'visible';
-                this.maker(jsonResponse); //json  
+                if (!!(document.querySelector('.Loading') && document.querySelector('.table'))) {
+                    let loadingPic = document.querySelector('.Loading');
+                    let table = document.querySelector('.table');
+                    loadingPic.classList.add('hide');
+                    table.classList.add('show');//showing table
+                    this.makeData(jsonResponse); //json  
+                }
             }
         });   
     }
 
-    maker(data) {
+    makeData(data) {
         let output = document.querySelector('.response');
+        let counter=0;
         data.forEach((el, index) => {
             const bg = index % 2 == 0 ? '#eee' : '#fff';// different color each row
             const tr = document.createElement('tr');
@@ -41,7 +49,7 @@ export default class AppViewer {
             tr.innerHTML += `<td id="createdAt">${el.createdAt}</td>`;
             tr.innerHTML += `<td id="name">${el.name}</td>`;
             tr.innerHTML += `<td id="country">   <div class="button-container">
-                                        <span class="btn btn-modal dark" data-id="bounce-modal" class="Dot3">...</span>
+                                        <span class="btn btn-modal dark" data-id="bounce-modal" class="hidden" id='${counter}'>...</span>
                                             <span class="EditContent__a">
                                                 ${el.country}
                                             </span>
@@ -51,23 +59,40 @@ export default class AppViewer {
             tr.innerHTML += `<td class="color">${el.color} </td>`;
             tr.innerHTML += `<td class="delete"><input type="button" value="DELETE" class="delete" id="${el.id}" /></td>`;// onmousedown="myMousedownFunction(this,${el.id})" 
             tr.innerHTML += `<td class="edit"><input type="button" value="EDIT" id="btn-edit" class="${el.id}" /></td>`;
+            counter++;
             output.append(tr);
+            
         });
     }
     
     deleteData(id) {
-       return this.httpService.functionDel(id)
+       return this.httpService.deleteBike(id)
         .then((dataResponse) => {        
-            let idx = this.arr.findIndex((arr) => arr.id === id)
-            this.arr.splice(idx, 1);
+            let idx = this.httpService.arr.findIndex((arr) => arr.id === id)
+            this.httpService.arr.splice(idx, 1);
             // any
             let el = document.getElementById(`${id}`);
             console.log(el);
             el.remove();
-            alert("data delete successfully id ="+ id);
+            alert("data deleted successfully id ="+ id);
             console.log(dataResponse);
         }) 
     }
 
+     editData(id) {
+        let idx = this.arr.findIndex((arr) => arr.id === id);
+        console.log(this.arr[idx].name);
+        location.href = "Adding Items.html";
+     }
 
+     postData(body) {
+        return this.httpService.postBike(body)
+        .then(response => { 
+            response.json();
+            this.httpService.arr.push(response);
+            console.log(this.httpService.arr);        
+            alert("data Added successfully id ="+ body.id);
+            location.href = "index.html";
+        })
+     }
 }

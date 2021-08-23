@@ -1,15 +1,12 @@
-<html>
+<!DOCTYPE HTML>
+<html lang="en">
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="css/grid.css">
     <link rel="stylesheet" href="css/style.css">
 
     <script src="js/Slide-Menu.js"></script>
-    <!-- <script src="js/test.js"></script> -->
-    <!-- <script src="js/api.js"></script> -->
-    
 </head>
 
 <body>
@@ -20,8 +17,12 @@
 
             <div class="header__btn">
 
-                <i id="open" class='header__btn-open bx bx-menu'></i>
-                <i id="close" class='header__btn-close  bx bx-x hide'></i>
+                <i id="open" class='header__btn-open'>
+                    <img src="Image/open.png">
+                </i>
+                <i id="close" class='header__btn-close hide'>
+                    <img src="Image/close.png">
+                </i>
 
             </div>
 
@@ -29,9 +30,16 @@
                 <div class="item-1"><a href="index.html">Home</a></div>
                 <div class="item-2">About</div>
                 <div class="item-3">Service</div>
-                <div class="item-4"><a href="Contact.html">Contact</a></div>
+                <div class="item-4"><a href="Adding Items.html">Adding Items</a></div>
+            </div>
+            <div id="menu1" class="header__menu">
+                <div class="item-11"><a href="index.html">Home</a></div>
+                <div class="item-22">About</div>
+                <div class="item-33">Service</div>
+                <div class="item-44"><a href="Adding Items.html">Adding Items</a></div>
             </div>
         </div>
+
         <div class="row">
             <div class="col-2 menu">
                 <ul>
@@ -42,60 +50,52 @@
                 </ul>
             </div>
             <div class="col-8">
-                <div class="box-1">
-                    <caption>
-                        <h2>
-                            Lists of bikes
-                        </h2>
-                    </caption>
-                    <div id="loading">
-                        <img src="loading.gif" id="loading">  
-                    </div>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">id</th>
-                                <th scope="col">createdAt</th>
-                                <th scope="col">name</th>
-                                <th scope="col" class="EditContent" id="more"><span class="EditContent__a">country</span>
-                                </th>
-                                <th scope="col" class="color">color</th>
-                                <th scope="col" class="delete" rowspan="2">Delete</th>
-                                <th scope="col" class="edit btn-modal" id="btn-modal">Edit</span></th>
-                            </tr>
-                        </thead>
-                        <tbody id="response" class="response"> 
-                            <!--    ************////////////////////////************************************      -->
-                            <div class="modal" id="bounce-modal">
-                                <div class="m-container bounce">
-                                    <h2 class="m-title">More Info</h2>
-                                    <p class="m-close"></p>
-                                    <div class="m-content">
-                                        <div class="column1">
-                                            <div class="boxes-1" id="colormm">color</div>
-                                            <div class="boxes-2">country</div>
-                                            <div class="boxes-3">delete</div>
-                                            <div class="boxes-4">edit</div>
-                                        </div>
-                                        <div class="column2">
-                                            <div class="boxes-5">A</div>
-                                            <div class="boxes-6">B</div>
-                                            <div class="boxes-7">C</div>
-                                            <div class="boxes-8">D</div>
-                                        </div>
+                <caption>
+                    <h2>
+                        Lists of bikes
+                    </h2>
+                </caption>
+                <div class="Loading">
+                    <img src="loading.gif" class="Loading">
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">id</th>
+                            <th scope="col">createdAt</th>
+                            <th scope="col">name</th>
+                            <th scope="col" class="EditContent" id="more"><span class="EditContent__a">country</span>
+                            </th>
+                            <th scope="col" class="color">color</th>
+                            <th scope="col" class="delete" rowspan="2">Delete</th>
+                            <th scope="col" class="edit btn-modal" id="btn-modal">Edit</span></th>
+                        </tr>
+                    </thead>
+                    <tbody id="response" class="response">
+                        <!--    ************////////////////////////************************************      -->
+                        <div class="modal" id="bounce-modal">
+                            <div class="m-container bounce">
+                                <h2 class="m-title">More Info</h2>
+                                <p class="m-close"></p>
+                                <div class="m-content">
+                                    <div class="column1">
+                                        <div class="boxes-1" id="colormm">color</div>
+                                        <div class="boxes-2">country</div>
+                                        <div class="boxes-3">delete</div>
+                                        <div class="boxes-4">edit</div>
+                                    </div>
+                                    <div class="column2">
+                                        <div class="boxes-5">A</div>
+                                        <div class="boxes-6">B</div>
+                                        <div class="boxes-7">C</div>
+                                        <div class="boxes-8">D</div>
                                     </div>
                                 </div>
                             </div>
-                            <!--    ************////////////////////////************************************      -->
-                        </tbody>
-                    </table>
-
-                </div>
-                <div class="box-2">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis, amet tempora
-                    minima atque id modi?</div>
-                <div class="box-3">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis, amet tempora
-                    minima atque id modi?</div>
-                <!-- <div class="box-4">Dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</div> -->
+                        </div>
+                        <!--    ************////////////////////////************************************      -->
+                    </tbody>
+                </table>
             </div>
             <div class="col-2 right">
                 <div class="aside">
@@ -107,7 +107,7 @@
 
                     <h2>where?</h2>
                     <p>dolor sit amet cing elit. Maiores, cumque.</p>
-                    
+
                     <h2>Why?</h2>
                     <p>adipisicing elit. Omnis, amet tempora
                         minima atque id modi.</p>
@@ -120,22 +120,23 @@
                 </div>
             </div>
         </div>
+
         <div class="footer">
             <div class="footer__menu">
                 <div class="menu-1">Home</div>
                 <div class="menu-2">About</div>
-                
+
                 <div class="menu-3">Service</div>
                 <!--***********************************************************************fetch button*********************************-->
                 <!-- <div class="menu-3"><button class="btn">Get</button></div> -->
-                
+
                 <div class="menu-4"><a href="Contact.html"> Contact</a></div>
             </div>
         </div>
 
     </div>
-        
-    <script src="js/app.js" type="module" defer></script>    
+
+    <script src="js/app.js" type="module" defer></script>
     <!-- <script src="js/api1.js" defer></script>     -->
     <script src="js/box-Modal.js" defer></script>
 </body>
