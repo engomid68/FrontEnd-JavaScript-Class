@@ -1,6 +1,3 @@
-// var open = document.getElementById("open"),
-//     close = document.getElementById("close"),
-//     menu = document.getElementById("menu");
 
 window.onload = function(e){ 
 //***************************************  Start Menu in small window **********************************/
@@ -9,14 +6,13 @@ window.onload = function(e){
         menu = document.getElementById("menu");
     
     myFunction =(x,y,z)=> {
-        // console.log(x.addEventListener("click", myFunction));  
-        y.addEventListener("click",()=>{
+        x.addEventListener("click",()=>{
             x.classList.toggle("hide");
             y.classList.toggle("hide");
-            if (z == "slide-out"){
+            if (z == "slide-in"){
                 menu.classList.toggle("slide");
             }
-            if (z == "slide-in"){
+            if (z == "slide-out"){
                 menu.classList.toggle("slide");
             }
         })
