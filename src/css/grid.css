@@ -1,0 +1,24 @@
+.col-2-R {
+  width: 16.66%;
+  height: 67vh;
+  overflow: scroll;
+}
+
+.col-2-L {
+  width: 16.66%;
+  height: 67vh;
+  overflow: scroll;
+}
+
+.col-8 {
+  width: 66.66%;
+  height: 80vh;
+  overflow: scroll;
+}
+
+[class^=col-] {
+  float: left;
+  padding: 15px;
+}
+
+/*# sourceMappingURL=grid.css.map */
