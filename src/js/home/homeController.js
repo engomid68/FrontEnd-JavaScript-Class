@@ -1,16 +1,21 @@
 import HttpsService from '../httpService.js';
 import HomeViewer from './homeViewer.js';
+import StoreService from '../storeService.js';
+
 
 export default class HomeController {
 	/**
 	 * @param  {HomeViewer} homeViewer A HomeViewer instance
 	 * @param  {HttpsService} httpService A HttpsService instance
+	 * @param  {StoreService} storeService A StoreService instance
 	 */
-	constructor(homeViewer, httpService) {
+	constructor(homeViewer, httpService, storeService) {
 		this.homeViewer = homeViewer;
 		this.httpService = httpService;
+		this.storeService = storeService;
 		homeViewer.bindDeleteItem(this.deleteItem.bind(this));
 		homeViewer.bindEditItem(this.editItem.bind(this));
+		homeViewer.bindShowItemInModal(this.showItem.bind(this));
 	}
 
 	init() {
@@ -22,7 +27,7 @@ export default class HomeController {
 						if (result === 0) {
 							console.log("result nadarim");
 						}
-						console.log(result);
+						this.storeService.setBikes(result);
 						this.homeViewer.setHomeBikes(result);//.home
 					});
 
@@ -39,22 +44,34 @@ export default class HomeController {
 	 */
 	async deleteItem(bikeId) {
 		if(bikeId !== 0) {
-			const data = (!!(await this.httpService.deleteBike(bikeId)));
-			// let idx = this.httpService.arr.findIndex((arr) => arr.id === bikeId);
-			// this.httpService.arr.splice(idx, 1);
-			let $el = document.getElementById(`${bikeId}`);
-			$el.remove();
-			alert("data deleted successfully id =" + bikeId);
+			this.httpService.deleteBike(bikeId)
+			.then((result) => {
+				this.storeService.removeItem(bikeId);
+				let $rowElement = document.querySelector(`.bike-item-${bikeId}`);
+				$rowElement && $rowElement.remove();
+				console.log("data deleted successfully id =" + bikeId);
+			});
 		} else {
 			alert('Error');
 		}
 	}
 
 	async editItem(bikeId) {
-		if(bikeId !== 0) {
-			
-		} else {
-			alert('Error');
-		}
+		let bike = this.storeService.getBike(bikeId);
+		console.log('BIKE DATA =>', bike);
+		let btnEditRows = {
+			id: bike.id,
+			createdAt: bike.createdAt,
+			name: bike.name,
+			country: bike.country,
+			color: bike.color,
+		};
+		console.log("btnEditRows "+btnEditRows);
+		localStorage.setItem('editItem', JSON.stringify(btnEditRows));
+		document.location.hash = '#add';	
+	}
+
+	showItem(bikeId) {
+		console.log('showItem => Noting',bikeId);
 	}
 }

@@ -1,7 +1,7 @@
 import AppViewer from "../appViewer.js";
 import { qs,$delegate, $on } from '../helpers.js';
 
-const _itemId = element => parseInt(element.parentNode.dataset.id || element.parentNode.parentNode.dataset.id, 10);
+const _itemId = element => parseInt(element.parentNode.dataset.id || element.dataset.id || element.parentNode.parentNode.dataset.id, 10);
 
 export default class HomeViewer extends AppViewer {
 
@@ -23,39 +23,44 @@ export default class HomeViewer extends AppViewer {
              </div>`;
 	}
 
-    async setHomeBikes(Bikes) {
-		if(Bikes.length === 0) {
+    async setHomeBikes(bikes) {
+		if(bikes.length === 0) {
 			this.$tBody.innerHTML = `<div>NO ITEMS!!!</div>`;
 			return;
 		}
-		this.$tBody.innerHTML =  await this.template.itemListTemplate(Bikes);
+		this.$tBody.innerHTML =  await this.template.itemListTemplate(bikes);
         this.$btnDelete = qs('.btn-delete');//
         this.$btnEdit = qs('.btn-edit');//
 	}
 
     bindDeleteItem(handler) {
         $delegate(this.$tBody, '.btn-delete', 'click', ({target}) => {
-            let idx = target.parentNode.parentNode.dataset.id;
+            let itemId = _itemId(target);
             target.value = "Deleting...";
             target.disabled = true;
-            alert("Your Request For Deleting is Successfully Sent With This ID = "+ idx);
             (async () => {
-				const result = await handler(_itemId(target));
+				const result = await handler(itemId);
 			})();
 		});
 	}
 
     bindEditItem(handler) {
         $delegate(this.$tBody, '.btn-edit', 'click', ({target}) => {
-            let idx = target.parentNode.parentNode.dataset.id;
+            let itemId = _itemId(target);
             target.value = "Editing...";
-            target.disabled = true;
-            console.log(target.parentNode.parentNode.childNode[9].innerText);
-            
-            alert("Your Request For Deleting is Successfully Sent With This ID = "+ idx+': '+$id.parentNode.dataset.id);
+            target.disabled = true;            
             (async () => {
-				const result = await handler(_itemId(target));
+				const result = await handler(itemId);
 			})();
 		});
 	}
+
+    bindShowItemInModal() {
+        $delegate(this.$tBody, '.btn-modal', 'click', ({target}) => {
+            let itemId = _itemId(target);
+            (async () => {
+				const result = await handler(itemId);
+			})();
+        });
+    }
 }

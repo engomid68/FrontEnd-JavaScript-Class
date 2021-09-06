@@ -12,7 +12,7 @@ export default class HomeTemplate extends Template {
 	 */
 	itemTemplate(items,index) {
             const bg = index % 2 == 0 ? 'background-color:#fff' : 'background-color:#1BE37E';// different color each row
-			return `	<tr style="${bg}" data-id="${items.id}" id="${items.id}" >
+			return `	<tr style="${bg}" data-id="${items.id}" class="bike-item-${items.id}" >
 							<td id="id">
 								${items.id} 
 							</td>
@@ -24,7 +24,7 @@ export default class HomeTemplate extends Template {
 							</td>
 							<td id="country">   
 								<div class="button-container">
-									<span class="btn btn-modal dark" data-id="bounce-modal" class="hidden">
+									<span class="btn btn-modal dark" data-id="${items.id}" class="hidden">
 										...
 									</span>
 									<span class="EditContent__a">

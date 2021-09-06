@@ -8,8 +8,9 @@ import AddController from './add/addController.js';
 export default class AppController {
    
 
-	constructor(httpService) {
+	constructor(httpService, storeService) {
 		this.httpService = httpService;
+		this.storeService = storeService;
     }
 
     init(raw) {
@@ -30,13 +31,6 @@ export default class AppController {
 					controller: AddController
 				});
 				break;
-			// case '#signin':
-			// 	this.initController({
-			// 		template: SigninTemplate,
-			// 		view: SigninView,
-			// 		controller: SigninController
-			// 	});
-			// 	break;
 			default:
 			  alert('not found =>', route);
 		}
@@ -50,6 +44,7 @@ export default class AppController {
 			const controller = new arg.controller(
 				view, 
 				this.httpService, 
+				this.storeService
 			);
 			controller.init();
 		});

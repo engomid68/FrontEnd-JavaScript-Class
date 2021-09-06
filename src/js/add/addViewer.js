@@ -1,12 +1,13 @@
 import AppViewer from "../appViewer.js";
 import { qs,$on } from '../helpers.js';
 
-// const _itemId = element => parseInt(element.value , 10);
+const _getLocalStorage = key => JSON.parse(localStorage.getItem(key));
 
 export default class AddViewer extends AppViewer {
 
-    constructor(template) {
+    constructor(template,storeStorage) {
         super(template);
+        this.storeStorage = storeStorage;
     }
 
     async checkLoadContent() {
@@ -17,43 +18,40 @@ export default class AddViewer extends AppViewer {
 		this.$nameInput = qs('#n3', this.$divForm);
 		this.$countryInput = qs('#n4', this.$divForm);
 		this.$colorInput = qs('#n5', this.$divForm);
-		this.$buttonFormSubmit = qs('.Add', this.$divForm);
+		this.$btnAddNewBike = qs('.Add', this.$divForm);
 	}
-
-    // activeListLoading() {
-	// 	this.$tBody.innerHTML = 
-    //         `<div class="Loading">
-    //              <img src="src/Image/loading.gif" class="Loading">
-    //          </div>`;
-	// }
-
-    // async setHomeBikes(Bikes) {
-	// 	if(Bikes.length === 0) {
-	// 		this.$tBody.innerHTML = `<div>NO ITEMS!!!</div>`;
-	// 		return;
-	// 	}
-	// 	this.$tBody.innerHTML =  await this.template.itemListTemplate(Bikes);
-    //     this.$btnDelete = qs('.btn-delete');//
-    //     this.$btnEdit = qs('.btn-edit');//
-	// }
 
     bindAddItem(handler) {
-        $on(this.$buttonFormSubmit, 'click', () => {
-            this.$buttonFormSubmit.innerHTML = 'Loading...';
-			this.$buttonFormSubmit.disabled = true;
-            let bikeBody = 
-                { id: this.$idInput.value,
-                  createdAt: this.$createdAtInput.value,
-                  name: this.$nameInput.value,
-                  country: this.$countryInput.value,
-                  color: this.$colorInput.value
-                }
-            ;          
-            (async () => {
-				const result = await handler(bikeBody);
-                this.$buttonFormSubmit.innerHTML = 'Add New Bike';
-                this.$buttonFormSubmit.disabled = false;
-			})();
+        $on(this.$btnAddNewBike, 'click', () => {
+            this.$btnAddNewBike.innerHTML = 'Loading...';
+			this.$btnAddNewBike.disabled = true;
+            if (this.$nameInput.value === "" ) {
+                this.$btnAddNewBike.innerHTML = 'Add New Bike';
+                this.$btnAddNewBike.disabled = false;
+            } else {
+                let bikeBody = 
+                    { id: this.$idInput.value,
+                    createdAt: this.$createdAtInput.value,
+                    name: this.$nameInput.value,
+                    country: this.$countryInput.value,
+                    color: this.$colorInput.value
+                    };         
+                (async () => {
+                    await handler(bikeBody);
+                    this.$btnAddNewBike.innerHTML = 'Add New Bike';
+                    this.$btnAddNewBike.disabled = false;
+                })();
+            }
 		});
 	}
+
+    editRow() {
+        let bikeEdit = _getLocalStorage('editItem');
+        console.log('editRow bikeEdit =>',bikeEdit);
+        this.$idInput.value = bikeEdit.id;
+        this.$createdAtInput.value = bikeEdit.createdAt;
+        this.$nameInput.value = bikeEdit.name;
+        this.$countryInput.value = bikeEdit.country;
+        this.$colorInput.value = bikeEdit.color;   
+    }
 }

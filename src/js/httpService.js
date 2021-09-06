@@ -1,16 +1,15 @@
 import { environment }  from "./environment.js";
 export default class HttpService {
     
-    constructor () {
-        this.arr11 = [];
+    constructor (storeService) {
         this.url = environment.BASE_API + '/api/v1/bikes';
+        this.storeService = storeService;
     }
 
     getBikes() {
         return fetch(this.url)
             .then((rep) => {
-               this.arr11 = rep.json();
-               return this.arr11;
+               return rep.json();
         }).catch((err) => {
             console.log(`We can't connet to website :  ${err}`);
         });
@@ -35,8 +34,7 @@ export default class HttpService {
     }
 
     postBike(data) {
-		let api = this.url;
-		return fetch(`${api}`, {
+		return fetch(this.url , {
 			method: 'POST',
 			headers: this.getHeaders() ,
             body: JSON.stringify(data)
@@ -45,19 +43,19 @@ export default class HttpService {
         });
 	}
 
-    putBike(data) {
-		let api = this.url;
-		return fetch(`${api}`, {
+    async putBike(body,id) {
+		const response = await fetch(`${this.url}/${id}`, {
 			method: 'PUT',
-			headers: this.getHeaders() ,
-
-		}).catch((err) => {	
-            console.log(`We Can't Connet To Website For Adding New Row :  ${err}`);
-        });
+			headers: this.getHeaders(),
+			mode: 'cors', // no-cors, *cors, same-origin
+			body: JSON.stringify(body)
+		});		
+		return await response.json();
 	}
 
 	getHeaders() {
 		return {
+            'Accept': 'application/json',
 			'Content-Type': 'application/json; charset=utf-8'
 		}
 	}
