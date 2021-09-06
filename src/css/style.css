@@ -32,9 +32,7 @@
   align-items: center;
   background-color: lightblue;
   height: 10vh;
-  /**************************** New change */
   padding: 15px;
-  /**************************** End New change */
   width: 100%;
 }
 .header__btn {
@@ -104,7 +102,6 @@
   margin: 0px;
   padding: 0px;
 }
-
 .menu li {
   padding: 8px;
   margin-bottom: 7px;
@@ -113,7 +110,6 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   border-radius: 5px 15px;
 }
-
 .menu li:hover {
   background-color: #0099cc;
 }
@@ -192,6 +188,10 @@
     display: none;
   }
 
+  .EditContent:after {
+    content: "...";
+  }
+
   .EditContent__a {
     display: none;
   }
@@ -267,8 +267,7 @@
     box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
   }
 
-  .modal .m-container .m-close:after,
-.modal .m-container .m-close:before {
+  .modal .m-container .m-container .m-close:after, .modal .m-container .m-container .m-close:before {
     content: "";
     display: block;
     position: absolute;
@@ -470,12 +469,10 @@
     overflow: scroll;
   }
 
-  /****************************  New change */
   [class^=col-] {
     width: 100%;
   }
 
-  /**************************** End New change */
   .footer {
     position: sticky;
     height: 5vh;
@@ -556,7 +553,7 @@ label {
 }
 
 .input:invalid {
-  box-shadow: 0 0 5px 1px red;
+  box-shadow: 0 0 5px 1px #da881c;
 }
 
 button {
