@@ -49,6 +49,18 @@
   padding-left: 15px;
   cursor: pointer;
 }
+.header__menu [class^=item-] a {
+  text-decoration: none;
+}
+.header__menu [class^=item-] a:hover {
+  color: #0099cc;
+}
+.header__menu [class^=item-] a:active {
+  color: #ffffff;
+}
+.header__menu [class^=item-] a:link {
+  color: #ffffff;
+}
 
 .footer {
   display: flex;
@@ -67,6 +79,18 @@
 .footer__menu [class^=menu-] {
   padding-left: 15px;
   cursor: pointer;
+}
+.footer__menu a {
+  text-decoration: none;
+}
+.footer__menu a:hover {
+  color: #0099cc;
+}
+.footer__menu a:active {
+  color: #ffffff;
+}
+.footer__menu a:link {
+  color: #ffffff;
 }
 
 .row:after {
@@ -166,11 +190,6 @@
 .delete,
 .color {
     display: none;
-  }
-
-  .EditContent:after {
-    content: "...";
-    cursor: pointer;
   }
 
   .EditContent__a {
@@ -324,7 +343,7 @@
     width: 50%;
   }
 
-  .btn-modal, .Dot3 {
+  .button-container .btn-modal, .Dot3 {
     cursor: pointer;
     font-family: serif;
     visibility: visible;
@@ -474,19 +493,6 @@
   right: -100%;
 }
 
-.main-section {
-  padding: 15px;
-  background: #f1f1f1;
-}
-
-.custom-file-control::after {
-  content: "Choose file...";
-}
-
-.custom-file-control::before {
-  content: "Browse";
-}
-
 .response {
   overflow: scroll;
   height: 60vh;
@@ -498,8 +504,6 @@ td {
   border: 1px solid #6f99a8;
 }
 
-/****************************  New change */
-/**************************** End New change */
 [class^=boxes-] {
   display: none;
 }
@@ -551,8 +555,12 @@ label {
   border: #3399FF 1px solid;
 }
 
+.input:invalid {
+  box-shadow: 0 0 5px 1px red;
+}
+
 button {
-  background: #063FE0;
+  background: #33b5e5;
   color: #FFFFFF;
   padding: 4px;
   border-radius: 8px;
@@ -564,7 +572,7 @@ button {
 }
 
 button:active {
-  background: #001759;
+  background: #0099cc;
 }
 
 /******        Style For Form         **********/

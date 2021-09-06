@@ -69,6 +69,22 @@ $bp: (
         [class^="item-"] {
             padding-left: 15px;
             cursor: pointer;
+        
+            a {
+                text-decoration: none;
+            }
+
+            a:hover {
+                color: #0099cc;
+            }
+
+            a:active {
+                color: #ffffff;
+            }
+
+            a:link {
+                color: #ffffff;
+            }
         }
     }
 }
@@ -88,6 +104,22 @@ $bp: (
         [class^="menu-"] {
             padding-left: 15px;
             cursor: pointer;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #0099cc;
+        }
+
+        a:active {
+            color: #ffffff;
+        }
+
+        a:link {
+            color: #ffffff;
         }
     }
 }
@@ -189,11 +221,6 @@ $bp: (
     .delete,
     .color {
         display: none;
-    }
-
-    .EditContent:after {
-        content: "...";
-        cursor: pointer;
     }
 
     .EditContent__a {
@@ -341,7 +368,6 @@ $bp: (
         flex-direction: column;
         justify-content: space-between;
         width: 825px;
-        // height: 21vh;
     }
 
     .column2 {
@@ -349,10 +375,9 @@ $bp: (
         flex-direction: column;
         justify-content: space-between;
         width: 50%;
-        // height: 21vh;
     }
 
-    .btn-modal , .Dot3 {
+    .button-container .btn-modal , .Dot3 {
         cursor: pointer;
         font-family: serif;
         visibility: visible;
@@ -518,21 +543,6 @@ $bp: (
     right: -100%;
 }
 
-//form validation
-.main-section {
-    padding: 15px;
-    background: #f1f1f1;
-}
-
-.custom-file-control::after {
-    content: "Choose file...";
-}
-
-.custom-file-control::before {
-    content: "Browse";
-}
-//End form validation
-
 .response {
     overflow: scroll;
     height: 60vh;
@@ -543,9 +553,7 @@ th,
 td {
     border: 1px solid #6f99a8;
 }
-/****************************  New change */
 
-/**************************** End New change */
 //Modal Box start
 [class ^="boxes-"]{
     display: none;
@@ -563,15 +571,18 @@ form {
     -moz-box-shadow:2px 2px 3px #666;
     -webkit-box-shadow:2px 2px 3px #666;    
 }
+
 form:focus-within {
     background: #F0F0F0;
     border: #3399FF 1px solid;
 }
+
 label {
     display: inline-block;
     width: 100px;
     height: 50px;
 }
+
 .input {
     background: #F9F9F9;
     padding: 4px;
@@ -584,16 +595,23 @@ label {
     -webkit-box-shadow:2px 2px 3px #666;    
     outline: 0;
 }
+
 .input:hover {
     background: #F5F5F5;
     border: #92C9FF 1px solid;
 }
+
 .input:focus {
     background: #F0F0F0;
     border: #3399FF 1px solid;
 }
+
+.input:invalid {
+    box-shadow: 0 0 5px 1px red;
+}
+
 button {
-    background: #063FE0;
+    background: #33b5e5;
     color: #FFFFFF;
     padding: 4px;
     border-radius: 8px;    
@@ -603,7 +621,8 @@ button {
     -moz-box-shadow:2px 2px 3px #666;
     -webkit-box-shadow:2px 2px 3px #666;    
 }
+
 button:active {
-    background: #001759;
+    background: #0099cc;
 }
 /******        Style For Form         **********/
