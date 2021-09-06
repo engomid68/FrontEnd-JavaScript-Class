@@ -15,7 +15,6 @@ export default class HomeController {
 		this.storeService = storeService;
 		homeViewer.bindDeleteItem(this.deleteItem.bind(this));
 		homeViewer.bindEditItem(this.editItem.bind(this));
-		homeViewer.bindShowItemInModal(this.showItem.bind(this));
 	}
 
 	init() {
@@ -69,9 +68,5 @@ export default class HomeController {
 		console.log("btnEditRows "+btnEditRows);
 		localStorage.setItem('editItem', JSON.stringify(btnEditRows));
 		document.location.hash = '#add';	
-	}
-
-	showItem(bikeId) {
-		console.log('showItem => Noting',bikeId);
 	}
 }

@@ -36,17 +36,17 @@ export default class AddController {
 	async addItem(body) {
 		if(body.id !== '') {
 			if (this.storeService.getBike(body.id) === null ) {
-				console.log(body);
 				await this.httpService.postBike(body);
 						this.storeService.addItem(body);
 			} else {
 				const idBody = body.id;
 				delete body.id;
-				await this.httpService.putBike(body,idBody)
+				if (window.confirm("Do you really want to editItem?")) {
+					await this.httpService.putBike(body,idBody)
 					.then((resault) => {
-						console.log('resault for put method :' + resault);
 						this.storeService.editItem(body);
 					});
+				} 
 			}
 			
 		}

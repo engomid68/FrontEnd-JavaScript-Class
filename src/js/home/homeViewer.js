@@ -54,13 +54,4 @@ export default class HomeViewer extends AppViewer {
 			})();
 		});
 	}
-
-    bindShowItemInModal() {
-        $delegate(this.$tBody, '.btn-modal', 'click', ({target}) => {
-            let itemId = _itemId(target);
-            (async () => {
-				const result = await handler(itemId);
-			})();
-        });
-    }
 }

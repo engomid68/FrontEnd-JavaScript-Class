@@ -6,7 +6,6 @@ export default class StoreService {
 
 	setBikes(bikes) {
 		this.bikes = bikes;
-		console.log('set bike =>', this.bikes);
 	}
 
 	getBikes() {
@@ -14,7 +13,6 @@ export default class StoreService {
 	}
 
 	getBike(bikeId) {
-		console.log('edit get bike =>', this.bikes, bikeId);
 		let idx = this.bikes.findIndex((arr) => parseInt(arr.id) === parseInt(bikeId));
 		if(idx === -1) {
 			return null;
@@ -34,7 +32,6 @@ export default class StoreService {
 	editItem(bikeId) {
 		let idx = this.bikes.findIndex((arr) => parseInt(arr.id) === bikeId);
 		this.bikes.splice(idx,1, bikeId);
-		console.log('editItem this.bikes =>', this.bikes);
 	}
 
 }
