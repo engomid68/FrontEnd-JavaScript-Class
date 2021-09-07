@@ -1,4 +1,4 @@
-import { environment }  from "./environment.js";
+import { environment }  from "./environment/environment.js";
 export default class HttpService {
     
     constructor (storeService) {

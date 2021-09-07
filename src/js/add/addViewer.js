@@ -11,7 +11,7 @@ export default class AddViewer extends AppViewer {
     }
 
     async checkLoadContent() {
-		await this.loadContent('src/js/add/add.html');
+		await this.loadContent('js/add/add.html');
 		this.$divForm = qs('.form');
 		this.$idInput = qs('#n1', this.$divForm);
 		this.$createdAtInput = qs('#n2', this.$divForm);

@@ -67,18 +67,18 @@ $bp: (
         
             a {
                 text-decoration: none;
-            }
 
-            a:hover {
-                color: #0099cc;
-            }
+                &:hover {
+                    color: #0099cc;
+                }
 
-            a:active {
-                color: #ffffff;
-            }
+                &:active {
+                    color: #ffffff;
+                }
 
-            a:link {
-                color: #ffffff;
+                &:link {
+                    color: #ffffff;
+                }
             }
         }
     }
@@ -469,8 +469,8 @@ $bp: (
             right: 0px;
             top: 5vh;
             background-color: lightpink;
-            width: 100%;
-            height: 91vh;
+            width: 50%;
+            height: 60vh;
             transition: all 0.4s ease;
         }
     }
@@ -533,8 +533,8 @@ $bp: (
             right: 0px;
             top: 5vh;
             background-color: lightpink;
-            width: 100%;
-            height: 91vh;
+            width: 50%;
+            height: 60vh;
             z-index: -1;
             transition: all 0.4s ease;
         }
@@ -650,7 +650,7 @@ label {
 
 .input {
     &:invalid {
-        box-shadow: 0 0 5px 1px rgb(218, 136, 28);
+        box-shadow: 0 0 13px -6px red;
     }
 }
 

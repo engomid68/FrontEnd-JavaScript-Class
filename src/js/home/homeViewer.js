@@ -10,7 +10,7 @@ export default class HomeViewer extends AppViewer {
     }
 
     async checkLoadContent() {
-		await this.loadContent('src/js/home/home.html');
+		await this.loadContent('js/home/home.html');
 		this.$home = qs('.home');
 		this.$table = qs('.table', this.$home);
 		this.$tBody = qs('.response', this.$table );
@@ -19,7 +19,7 @@ export default class HomeViewer extends AppViewer {
     activeListLoading() {
 		this.$tBody.innerHTML = 
             `<div class="Loading">
-                 <img src="src/Image/loading.gif" class="Loading">
+                 <img src="assets/loading.gif" class="Loading">
              </div>`;
 	}
 
