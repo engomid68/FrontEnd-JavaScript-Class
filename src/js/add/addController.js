@@ -15,9 +15,9 @@ export default class AddController {
 		this.addViewer = addViewer;
 		this.httpService = httpService;
 		this.storeService = storeService;
-		let localData = _getLocalStorage('editItem');
-		console.log('localData', localData);
-		if (localData !== null) {
+		let localDataStorage = _getLocalStorage('editItem');
+		console.log('localData', localDataStorage);
+		if (localDataStorage !== null) {
 			addViewer.editRow(this.addItem.bind(this));
 			localStorage.removeItem('editItem');
 		}

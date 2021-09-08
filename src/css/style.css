@@ -18,8 +18,7 @@
 .container {
   height: 100vh;
   width: 100vw;
-  scrollbar-width: none;
-  overflow: hidden;
+  overflow: scroll;
 }
 
 .header {
@@ -169,6 +168,11 @@
   justify-content: center;
   place-content: center;
   width: 25%;
+}
+
+.hide {
+  display: flex;
+  flex-direction: row;
 }
 
 @media (max-width: 1440px) {
@@ -350,23 +354,22 @@
 
   .col-2-R {
     width: 16.66%;
-    height: 67vh;
-    overflow: scroll;
   }
 
   .col-8 {
     width: 50%;
-    height: 80vh;
-    overflow: scroll;
   }
 
   .col-2-L {
     width: 33.34%;
-    height: 67vh;
-    overflow: scroll;
   }
 }
 @media (max-width: 768px) {
+  .container {
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
   .header {
     justify-content: center;
     height: 5vh;
@@ -381,6 +384,8 @@
     font-style: 40px;
   }
   .header__menu {
+    width: 7rem;
+    margin-right: -7rem;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
@@ -388,7 +393,6 @@
     right: 0px;
     top: 5vh;
     background-color: lightpink;
-    width: 50%;
     height: 60vh;
     transition: all 0.4s ease;
   }
@@ -399,19 +403,10 @@
 
   .col-2-R {
     width: 25%;
-    height: 33vh;
-    overflow: scroll;
   }
 
   .col-8 {
     width: 75%;
-    height: 57vh;
-    overflow: scroll;
-  }
-
-  .col-2-L {
-    height: 33vh;
-    overflow: scroll;
   }
 
   .footer {
@@ -420,11 +415,15 @@
   .footer__menu [class^=menu-] {
     display: none;
   }
+
+  .hide {
+    display: none;
+  }
 }
 @media (max-width: 480px) {
   .container {
-    overflow: hidden;
-    scrollbar-width: none;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
 
   .header {
@@ -441,6 +440,9 @@
     font-style: 40px;
   }
   .header__menu {
+    overflow: hidden;
+    width: 7rem;
+    margin-right: -7rem;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
@@ -448,25 +450,9 @@
     right: 0px;
     top: 5vh;
     background-color: lightpink;
-    width: 50%;
     height: 60vh;
     z-index: -1;
     transition: all 0.4s ease;
-  }
-
-  .col-8 {
-    height: 50vh;
-    overflow: scroll;
-  }
-
-  .col-2-R {
-    height: 20vh;
-    overflow: scroll;
-  }
-
-  .col-2-L {
-    height: 20vh;
-    overflow: scroll;
   }
 
   [class^=col-] {
@@ -482,12 +468,8 @@
     display: none;
   }
 }
-.hide {
-  display: none;
-}
-
 .slide {
-  right: -100%;
+  margin-right: 0;
 }
 
 .response {

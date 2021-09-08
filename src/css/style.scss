@@ -18,8 +18,7 @@
 .container {
     height: 100vh;
     width: 100vw;
-    scrollbar-width: none;
-    overflow: hidden;
+    overflow: scroll;
 }
 
 //$bp = BreakPoint
@@ -203,6 +202,11 @@ $bp: (
     width: 25%;
 }
 
+.hide {
+    display: flex;
+    flex-direction: row;
+}
+
 @include query(laptop) {
     .Dot3 {
         display: none;
@@ -214,6 +218,7 @@ $bp: (
 }
 
 @include query(bikes) {
+
     .edit,
     .delete,
     .color {
@@ -428,25 +433,23 @@ $bp: (
 
     .col-2-R {
         width: 16.66%;
-        height: 67vh;
-        overflow: scroll;
     }
 
     .col-8 {
         width: 50%;
-        height: 80vh;
-        overflow: scroll;
     } 
 
     .col-2-L {
         width: 33.34%;
-        height: 67vh;
-        overflow: scroll;
     }
     // **************************************   Modal Box End  ***************************************
 }
 
 @include query(tablet) {
+    .container {
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
     .header {
         justify-content: center;
         height: 5vh;
@@ -462,6 +465,8 @@ $bp: (
         }
 
         &__menu {
+            width: 7rem;
+            margin-right: -7rem;
             flex-direction: column;
             align-items: center;
             justify-content: space-evenly;
@@ -469,7 +474,6 @@ $bp: (
             right: 0px;
             top: 5vh;
             background-color: lightpink;
-            width: 50%;
             height: 60vh;
             transition: all 0.4s ease;
         }
@@ -481,20 +485,12 @@ $bp: (
 
     .col-2-R {
         width: 25%;
-        height: 33vh;
-        overflow: scroll;
     }
 
     .col-8 {
         width: 75%;
-        height: 57vh;
-        overflow: scroll;
     } 
 
-    .col-2-L {
-        height: 33vh;
-        overflow: scroll;
-    }
 // *************************************** end new change
     .footer {
         height: 5vh ;
@@ -504,12 +500,16 @@ $bp: (
             }
         }
     }
+
+    .hide {
+        display: none;
+    }
 }
 
 @include query(mobile) {
     .container {
-        overflow: hidden;
-        scrollbar-width: none;
+        overflow-y: auto;
+        overflow-x: hidden;
     }
     .header {
         justify-content: center;
@@ -526,6 +526,9 @@ $bp: (
         }
 
         &__menu {
+            overflow: hidden;
+            width: 7rem;
+            margin-right: -7rem;
             flex-direction: column;
             align-items: center;
             justify-content: space-evenly;
@@ -533,26 +536,10 @@ $bp: (
             right: 0px;
             top: 5vh;
             background-color: lightpink;
-            width: 50%;
             height: 60vh;
             z-index: -1;
             transition: all 0.4s ease;
         }
-    }
-    
-    .col-8 {
-        height: 50vh;
-        overflow: scroll;
-    }  
-
-    .col-2-R {
-        height: 20vh;
-        overflow: scroll;
-    }
-
-    .col-2-L {
-        height: 20vh;
-        overflow: scroll;
     }
 
     [class ^="col-"] {
@@ -571,12 +558,8 @@ $bp: (
     }
 }
 
-.hide {
-    display: none;
-}
-
 .slide {
-    right: -100%;
+    margin-right: 0;
 }
 
 .response {
