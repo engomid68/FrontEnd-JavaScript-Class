@@ -184,6 +184,11 @@
     height: 67vh;
     overflow: scroll;
   }
+
+  .footer {
+    position: fixed;
+    bottom: 0;
+  }
 }
 @media (max-width: 990px) {
   .edit,
@@ -363,6 +368,11 @@
   .col-2-L {
     width: 33.34%;
   }
+
+  .footer {
+    position: fixed;
+    bottom: 0;
+  }
 }
 @media (max-width: 768px) {
   .container {
@@ -391,7 +401,7 @@
     justify-content: space-evenly;
     position: absolute;
     right: 0px;
-    top: 5vh;
+    top: 5.5vh;
     background-color: lightpink;
     height: 60vh;
     transition: all 0.4s ease;
@@ -411,6 +421,8 @@
 
   .footer {
     height: 5vh;
+    position: relative;
+    bottom: 0;
   }
   .footer__menu [class^=menu-] {
     display: none;
@@ -448,7 +460,7 @@
     justify-content: space-evenly;
     position: absolute;
     right: 0px;
-    top: 5vh;
+    top: 5.5vh;
     background-color: lightpink;
     height: 60vh;
     z-index: -1;
@@ -460,7 +472,8 @@
   }
 
   .footer {
-    position: sticky;
+    position: relative;
+    bottom: 0;
     height: 5vh;
     overflow: scroll;
   }
