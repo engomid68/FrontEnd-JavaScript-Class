@@ -15,6 +15,12 @@ export default class HomeController {
 		this.storeService = storeService;
 		homeViewer.bindDeleteItem(this.deleteItem.bind(this));
 		homeViewer.bindEditItem(this.editItem.bind(this));
+		homeViewer.bindShowModal(this.showModalItem.bind(this));
+		homeViewer.bindCloseModal(this.closeModalItem.bind(this));
+		homeViewer.bindModalEditItem(this.editItem.bind(this));
+		homeViewer.bindModalDeleteItem(this.deleteItem.bind(this));
+
+
 	}
 
 	init() {
@@ -49,6 +55,9 @@ export default class HomeController {
 				let $rowElement = document.querySelector(`.bike-item-${bikeId}`);
 				$rowElement && $rowElement.remove();
 				console.log("data deleted successfully id =" + bikeId);
+				if(!!this.homeViewer.$modal.getElementsByClassName('active') === true) {
+					this.closeModalItem();
+				}
 			});
 		} else {
 			alert('Error');
@@ -68,5 +77,16 @@ export default class HomeController {
 		console.log("btnEditRows "+btnEditRows);
 		localStorage.setItem('editItem', JSON.stringify(btnEditRows));
 		document.location.hash = '#add';	
+	}
+
+	showModalItem(bikeId) {
+		console.log('showItem => Noting',bikeId);
+		let bike = this.storeService.getBike(bikeId);
+		this.homeViewer.putItemInModal(bike);			
+		this.homeViewer.$modal.classList.add('active');	
+	}
+
+	closeModalItem() {
+		this.homeViewer.$modal.classList.remove('active');
 	}
 }

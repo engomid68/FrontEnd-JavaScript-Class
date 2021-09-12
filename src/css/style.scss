@@ -376,15 +376,20 @@ $bp: (
                 border-radius: 0 0 5px 5px;
                 [class ^="boxes-"]{
                     display: flex;
-                    border: 5px solid lightgreen;
-                    overflow: hidden;
+                    border: 3px solid #FF5201;
+                    height: 40px;
+                    overflow: scroll;
                 }
             }
         }    
     }  
     
-    .boxes-1, .boxes-2, .boxes-3, .boxes-4 {
-        width: 30%;
+    .boxes-1, .boxes-2, .boxes-3, .boxes-4, .boxes-5, .boxes-6 {
+        width: 75%;
+    }
+
+    .boxes-7, .boxes-8, .boxes-9, .boxes-10, .boxes-11, .boxes-12 {
+        width: 75%;
     }
 
     .modal {
@@ -422,7 +427,7 @@ $bp: (
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        width: 825px;
+        width: 50%;
     }
 
     .column2 {

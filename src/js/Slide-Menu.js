@@ -11,9 +11,11 @@ window.onload = function(e){
             y.classList.toggle("hide");
             if (z == "slide-in"){
                 menu.classList.toggle("slide");
+                document.body.style.background = 'rgba(0,0,0,0.5)';
             }
             if (z == "slide-out"){
                 menu.classList.toggle("slide");
+                document.body.style.background = '#fff';
             }
         })
     }
