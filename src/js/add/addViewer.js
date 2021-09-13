@@ -38,7 +38,7 @@ export default class AddViewer extends AppViewer {
                     };         
                 (async () => {
                     await handler(bikeBody);
-                    this.$btnAddNewBike.innerHTML = 'Add New Bike';
+                    this.$btnAddNewBike.innerHTML = 'Add New OR Edit Bike';
                     this.$btnAddNewBike.disabled = false;
                 })();
             }

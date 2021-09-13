@@ -19,8 +19,7 @@ export default class HomeController {
 		homeViewer.bindCloseModal(this.closeModalItem.bind(this));
 		homeViewer.bindModalEditItem(this.editItem.bind(this));
 		homeViewer.bindModalDeleteItem(this.deleteItem.bind(this));
-
-
+		homeViewer.bindSearchInput(this.searchItem.bind(this));
 	}
 
 	init() {
@@ -88,5 +87,12 @@ export default class HomeController {
 
 	closeModalItem() {
 		this.homeViewer.$modal.classList.remove('active');
+	}
+
+	searchItem(inputName) {
+		let bike = this.storeService.serachBike(inputName);
+		bike.forEach(element => {
+			this.homeViewer.setHomeBikes(bike);
+		});
 	}
 }

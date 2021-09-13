@@ -23,6 +23,7 @@ export default class HomeViewer extends AppViewer {
 		this.$name = qs('.boxes-8'); 
 		this.$country = qs('.boxes-9'); 
 		this.$color = qs('.boxes-10'); 
+        this.$searchInput = qs('.search-input');
 	}
 
     activeListLoading() {
@@ -33,8 +34,8 @@ export default class HomeViewer extends AppViewer {
 	}
 
     async setHomeBikes(bikes) {
-		if(bikes.length === 0) {
-			this.$tBody.innerHTML = `<div>NO ITEMS!!!</div>`;
+		if(bikes === undefined) {
+			this.$tBody.innerHTML = `<tr>NO ITEMS!!!</tr>`;
 			return;
 		}
 		this.$tBody.innerHTML =  await this.template.itemListTemplate(bikes);
@@ -107,6 +108,16 @@ export default class HomeViewer extends AppViewer {
             (async () => {
                 const result = await handler(itemId);
             })()  
+        });
+    }
+
+    bindSearchInput(handler) {
+        $on(this.$searchInput, 'input', (e) => {
+            let searchInput = e.target.value;
+            this.$tBody.innerHTML = '';
+            (async () => {
+                const result = await handler(searchInput);
+            })()
         });
     }
 }
