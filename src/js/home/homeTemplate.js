@@ -11,20 +11,22 @@ export default class HomeTemplate extends Template {
 	 * @param {Object} items 
 	 */
 	itemTemplate(items,index) {
-            const bg = index % 2 == 0 ? 'background-color:#fff' : 'background-color:#1BE37E';// different color each row
-			return `	<tr style="${bg}" data-id="${items.id}" class="bike-item-${items.id}" >
+            const bg = index % 2 == 0 ? 'background-color:rgba(0,0,0,.05)' : 'background-color:#fff';// different color each row
+			return `	<tr scope= "row" style="${bg}" data-id="${items.id}" class="bike-item-${items.id}" >
 							<td id="id">
 								${items.id} 
 							</td>
 							<td id="createdAt">
-								${items.createdAt}
+								<span>
+									${items.createdAt}
+								</span>
 							</td>
 							<td id="name">
 								${items.name}
 							</td>
 							<td id="country">   
 								<div class="button-container">
-									<span class="btn btn-modal dark" data-id="${items.id}" class="hidden">
+									<span class="btn btn-modal dark hide" data-id="${items.id}">
 										...
 									</span>
 									<span class="EditContent__a">
@@ -36,10 +38,10 @@ export default class HomeTemplate extends Template {
 								${items.color} 
 							</td>
 							<td class="delete">
-								<input type="button" value="DELETE" class="btn-delete"/>
+								<img class="btn-delete imageBtn" src="././assets/Delete.png" alt="Delete"/><!-- hidden -->
 							</td>
 							<td class="edit">
-								<input type="button" value="EDIT" class="btn-edit" />
+								<img class="btn-edit imageBtn" src="././assets/Edit.png" alt="Edit" />
 							</td>
 						</tr>
 					`;

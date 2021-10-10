@@ -25,23 +25,16 @@ export default class AddViewer extends AppViewer {
         $on(this.$btnAddNewBike, 'click', () => {
             this.$btnAddNewBike.innerHTML = 'Loading...';
 			this.$btnAddNewBike.disabled = true;
-            if (this.$nameInput.value === "" ) {
-                this.$btnAddNewBike.innerHTML = 'Add New Bike';
-                this.$btnAddNewBike.disabled = false;
-            } else {
-                let bikeBody = 
-                    { id: this.$idInput.value,
+            let bikeBody = { 
                     createdAt: this.$createdAtInput.value,
                     name: this.$nameInput.value,
                     country: this.$countryInput.value,
                     color: this.$colorInput.value
-                    };         
-                (async () => {
-                    await handler(bikeBody);
-                    this.$btnAddNewBike.innerHTML = 'Add New OR Edit Bike';
-                    this.$btnAddNewBike.disabled = false;
-                })();
-            }
+            };         
+            (async () => {
+                await handler(bikeBody);
+                this.$btnAddNewBike.disabled = false;
+            })();
 		});
 	}
 
@@ -52,6 +45,7 @@ export default class AddViewer extends AppViewer {
         this.$createdAtInput.value = bikeEdit.createdAt;
         this.$nameInput.value = bikeEdit.name;
         this.$countryInput.value = bikeEdit.country;
-        this.$colorInput.value = bikeEdit.color;   
+        this.$colorInput.value = bikeEdit.color; 
+        this.$btnAddNewBike.innerHTML = "Edit";
     }
 }

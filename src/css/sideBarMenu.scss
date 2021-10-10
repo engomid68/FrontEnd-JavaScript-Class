@@ -1,0 +1,272 @@
+/*sidebar Left*/
+.layout-fixed .main-sidebar {
+    bottom: 0;
+    float: none;
+    left: 0;
+    position: fixed;
+    top: 0;
+}
+
+.elevation-4 {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22) !important;
+}
+
+[class*="sidebar-dark-"] {
+    background: linear-gradient(#66615b,#000 80%);
+}
+
+//********************************* ScrollBar Hidden**********************
+.main-sidebar::-webkit-scrollbar {
+    width: 5px;
+    opacity: 0;
+}
+
+.main-sidebar::-webkit-scrollbar-button {
+    display: none;
+}
+
+.main-sidebar::-webkit-scrollbar-thumb {
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.main-sidebar::-webkit-scrollbar-track {
+    border-radius: 50px;
+}
+
+.main-sidebar::-webkit-scrollbar {
+    display: none;
+}
+
+//********************************* ScrollBar Hidden**********************
+.main-sidebar {
+    z-index: 1038;
+    height: 100vh;
+    overflow-y: hidden;
+    width: 185px;
+    top: 0;
+    left: 0;
+    position: absolute;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    .brandLogoSidebar {
+        height: 55px;
+        margin-top: 20px;
+        margin-bottom: 5px;
+        border: 0.5px solid #88898a;
+    }
+    .img-circle {
+        border-radius: 50%;
+        margin-left: 6px;
+    }
+    &.slidbar__menu {
+        display: block;
+        .active {
+            display: flex;
+            flex-direction: column;
+            color: red;
+        }
+    }
+    .brandLogoSidebar {
+        .brand-link {
+            .sideBarTextLogo {
+                margin-left: 51px;
+                margin-top: 5px;
+                margin-bottom: 5px;
+                transition: margin-left 0.3s ease-in-out, opacity 0.1s ease, visibility 0.1s ease;
+            }
+            .brand-image {
+                float: left;
+                line-height: 0.8;
+                margin-right: 5px;
+                margin-top: 3px;
+                margin-left: 5px;
+                max-height: 70px;
+                margin-bottom: 15px;
+                width: auto;
+            }
+            .bikeRent {
+                text-decoration: none;
+                color: white;
+                position: fixed;
+                left: 60px;
+                opacity: 1;
+                transform: translateX(-5px);
+                &:hover {
+                    color: rgb(138, 135, 135);
+                }
+                sub {
+                    font-size: 10px;
+                    color: orange;
+                }
+            }
+        }
+    }
+}
+
+aside {
+    display: block;
+    z-index: 1000;
+}
+//sub menu for slidebar
+[class^="item-"] {
+    list-style-type: none;
+    transition: 1s;
+
+    .sideBarText {
+        position: fixed;
+        left: 45px;
+        opacity: 1;    
+        &:hover {
+            color: orange;
+        }
+    }
+    &.active {
+        background-color: rgb(126, 126, 126);
+        color: white;
+    }
+    &:hover {
+        background: #343a40;
+    }
+}
+
+.subForms {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: #343a40;
+    li:hover {
+        background-color: rgb(129, 127, 127);
+        color: white !important;
+    }
+    .sideBarTextLogo {
+        margin-left: 7px;
+        &::before {
+            margin-right: 5px;
+            margin-left: 5px;
+        }
+    }
+}
+.sideBar-link {
+    padding: 16px 12px;
+    margin-bottom: 5px;
+}
+
+.slidbar__menu .sideBar-link p {
+    display: inline;
+    margin: 0;
+    white-space: normal;
+}
+
+//using for sideBar
+.hiddenText {
+    display: none;
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 0.2s, transform 1.5s;
+}
+
+.bikeRent {
+    text-decoration: none;
+    color: white;
+    &:hover {
+        color: rgb(138, 135, 135);
+    }
+}
+/*sidebar Left*/
+.container {
+    &.open-menu {
+        .header,
+        .footer,
+        .content-wrapper {
+            margin-left: 55px;
+            transition: margin-left 0.3s ease-in-out;
+        }
+        .main-sidebar {
+            width: 55px;
+            .searchBoxSlideBar {
+                display: none;
+            }
+            .sideBarText {
+                position: fixed;
+            }
+            &:hover {
+                .subForms {
+                    max-height: 0;
+                    .subHiddenText {
+                        display: none !important;
+                        opacity: 0 !important;
+                        .active {
+                            display: inline-block !important;
+                            opacity: 1 !important;
+                        }
+                    }
+                }
+                width: 185px;
+                transition: width 0.2s ease-in-out;
+                .sideBarTextLogo {
+                    position: absolute;
+                    margin-left: -2px;
+                    transition: margin-left 0.3s ease-in-out, opacity 0.1s ease, visibility 0.1s ease;
+                }
+
+                [class^="item-"],
+                .brandLogoSidebar {
+                    .hiddenText {
+                        display: inline-block !important;
+                        opacity: 1 !important;
+                        transform: translateX(0) !important;
+                    }
+                }
+                [class^="item-"].active + .subForms {
+                    .hiddenText {
+                        display: inline-block !important;
+                        opacity: 1 !important;
+                        transform: translateX(0) !important;
+                    }
+                }
+            }
+        }
+    }
+    .header,
+    .footer,
+    .content-wrapper {
+        transition: margin-left 0.3s ease-in-out;
+    }
+    .main-sidebar {
+        transition: width 0.3s ease-in-out;
+    }
+    .textTopic  {
+        color: whitesmoke;
+    }
+}
+.main-sidebar:hover {
+    .subForms {
+        max-height: 0;
+        .subHiddenText {
+            display: none !important;
+            opacity: 0 !important;
+            .active {
+                display: inline-block !important;
+                opacity: 1 !important;
+            }
+        }
+    }
+    width: 185px;
+    transition: width 0.2s ease-in-out;
+    .sideBarTextLogo {
+        position: absolute;
+        margin-left: -2px;
+        transition: margin-left 0.3s ease-in-out, opacity 0.1s ease, visibility 0.1s ease;
+    }
+
+    [class^="item-"],
+    [class^="item-"].active,
+    .brandLogoSidebar {
+        .hiddenText {
+            display: inline-block !important;
+            opacity: 1 !important;
+            transform: translateX(0) !important;
+        }
+    }
+}

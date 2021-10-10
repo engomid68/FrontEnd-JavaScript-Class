@@ -3,68 +3,864 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/grid.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 
-    <script src="js/Slide-Menu.js"></script>
+    <script src="js/slideMenu.js"></script>
+
 </head>
 
 <body>
+    <div class="overlay"></div>
     <div class="container">
-
-        <div class="header">
-            <div class="header__logo">LOGO</div>
-
-            <div class="header__btn">
-
-                <i id="open" class='header__btn-open'>
+        <div class="header" id="header">
+            <div class="headerButton">
+                <i id="openLeftMenu" class='header__btn-open'>
                     <img src="assets/open.png">
                 </i>
-                <i id="close" class='header__btn-close hide'>
-                    <img src="assets/close.png">
-                </i>
-
-            </div>
-            <div id="menu" class="header__menu">
-                <div class="item-1"><a href="#home">Home</a></div>
-                <div class="item-2"><a href="#">About</a></div>
-                <div class="item-3"><a href="#">Service</a></div>
-                <div class="item-4"><a href="#add">Adding Items</a></div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-2-R menu scroll-hidden">
-                <ul>
-                    <li>Menu-1</li>
-                    <li>Menu-2</li>
-                    <li>Menu-3</li>
-                    <li>Menu-4</li>
-                </ul>
-            </div>
-            <div class="col-8 app-bike scroll-hidden">
-    
-            </div>
-            <div class="col-2-L right scroll-hidden">
-                <div class="aside">
-                    <h2>dolor sit amet?</h2>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis, amet tempora
-                        minima atque id modi.
-                    </p>
-
-                    <h2>where?</h2>
-                    <p>dolor sit amet cing elit. Maiores, cumque.</p>
-
-                    <h2>Why?</h2>
-                    <p>adipisicing elit. Omnis, amet tempora
-                        minima atque id modi.</p>
+                <!-- <i id="colseLeftMenu" class='colseLeftMenu'>
+                    <img src="assets/close.png" alt="open"/>
+                </i> -->
+                <div class="headerOpenLeftMenu">
+                    <i id="openLeftMenuMobile" class='openLeftMenuMobile'>
+                        <img src="assets/open.png" alt="open" />
+                    </i>
+                </div>
+                <div class="headerLogo">
+                    <i id="bikeLogoMobile" class='bikeLogoMobile'>
+                        <img src="assets/bike.png">
+                    </i>
+                </div>
+                <div class="headerExtraMenu">
+                    <i id="extraHeaderMobile" class='extraHeaderMobile'>
+                        <img src="assets/dots.png">
+                    </i>
                 </div>
             </div>
+            <div class="headerGeneral">
+                <div id="menu" class="headerMenu">
+                    <div class="navItem-1"><a href="#home">Home</a></div>
+                    <div class="navItem-2"><a class="addItems">...</a><a href="#" class="about">About</a></div>
+                    <div class="navItem-3"><a href="#" class="service">Service</a></div>
+                    <div class="navItem-4"><a href="#add" class="addingItem">Adding Items</a></div>
+                </div>
+                <div class="modalMenuTablet">
+                    <div class="navItem-2"><a href="#">About</a></div>
+                    <div class="navItem-3"><a href="#">Service</a></div>
+                    <div class="navItem-4"><a href="#add">Adding Items</a></div>
+                </div>
+            </div>
+            <div class="signupButton">
+                <span class="title">Register/Login</span>
+                <img class="icon" src="assets/user.png" alt="Login" />
+            </div>
+        </div>
+        <!-- Main Sidebar Container -->
+        <aside id="slider" class="main-sidebar sidebar-dark-primary elevation-4">
+            <!-- Brand Logo -->
+            <div class="brandLogoSidebar">
+                <a href="#" class="brand-link">
+                    <img id="brandLogo1" src="assets/Logo.png" alt="RentBike" class="brand-image img-circle">
+                    <p class="bikeRent sideBarText textTopic">
+                        Bike Rent
+                        <sub>
+                            Manager
+                        </sub>
+                    </p>
+                </a>
+            </div>
+
+            <!-- SidebarSearch Form -->
+            <div class="form-inline">
+                <div class="input-group" data-widget="sidebar-search">
+                    <input class="searchBoxSlideBar" type="search" placeholder="Search" aria-label="Search">
+                    <div class="input-group-append">
+
+                    </div>
+                    <!-- menu in slider -->
+                    <ul id="menu1" class="slidbar__menu">
+                        <li class="item-">
+                            <a href="#" class="bikeRent sideBar-link">
+                                <img src="assets/dashboard.png" class="img-circle" />
+                                <span class="sideBarText textTopic">Dashboard</span>
+                            </a>
+                        </li>
+                        <ul class="subForms">
+                            <li class="">
+                                <a href="#" class="bikeRent sideBar-link">
+                                    <span class="subListIcon"><i class='bx bx-circle'><span id="subMenuNew"
+                                                class="sideBarText  font-size sub-Item-Color ml-05">Dashboard
+                                                v1</span></i></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="bikeRent sideBar-link">
+                                    <span class="subListIcon"><i class='bx bx-circle'><span id="subMenuNew"
+                                                class="sideBarText font-size sub-Item-Color ml-05">Dashboard
+                                                v2</span></i></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="bikeRent sideBar-link">
+                                    <span class="subListIcon"><i class='bx bx-circle'><span
+                                                class="sideBarText font-size sub-Item-Color ml-05">Dashboard
+                                                v3</span></i></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="bikeRent sideBar-link">
+                                    <span class="subListIcon"><i class='bx bx-circle'><span
+                                                class="sideBarText font-size sub-Item-Color ml-05">Dashboard
+                                                v4</span></i></span>
+                                </a>
+                            </li>
+                        </ul>
+                        <li class="item-">
+                            <a href="#" class="bikeRent sideBar-link">
+                                <img src="assets/layout.png" class="img-circle" />
+                                <span class="sideBarText textTopic">Layout Options</span>
+                            </a>
+                        </li>
+                        <ul class="subForms">
+                            <li>
+                                <a href="#" class="bikeRent sideBar-link">
+                                    <span class="subListIcon"><i class='bx bx-circle'><span
+                                                class="sideBarText font-size sub-Item-Color ml-05">Top
+                                                Navigation</span></i></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="bikeRent sideBar-link">
+                                    <span class="subListIcon"><i class='bx bx-circle'><span
+                                                class="sideBarText font-size sub-Item-Color ml-05">Top
+                                                Navigation + SideBar</span></i></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="bikeRent sideBar-link">
+                                    <span class="subListIcon"><i class='bx bx-circle'><span
+                                                class="sideBarText font-size sub-Item-Color ml-05">Boxed</span></i></span>
+                                </a>
+                            </li>
+                        </ul>
+                        <li class="item-">
+                            <a href="#" class="bikeRent sideBar-link">
+                                <img src="assets/pie.png" class="img-circle" />
+                                <span class="sideBarText textTopic">Charts</span>
+                            </a>
+                        </li>
+                        <ul class="subForms ">
+                            <li>
+                                <a href="#" class="bikeRent sideBar-link">
+                                    <span class="subListIcon"><i class='bx bx-circle'><span
+                                                class="sideBarText font-size sub-Item-Color ml-05">ChartJs</span></i></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="bikeRent sideBar-link">
+                                    <span class="subListIcon"><i class='bx bx-circle'><span
+                                                class="sideBarText font-size sub-Item-Color ml-05">Float</span></i></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="bikeRent sideBar-link">
+                                    <span class="subListIcon"><i class='bx bx-circle'><span
+                                                class="sideBarText font-size sub-Item-Color ml-05">Inline</span></i></span>
+                                </a>
+                            </li>
+                        </ul>
+                        <li class="item-">
+                            <a href="#" class="bikeRent sideBar-link">
+                                <img src="assets/tree.png" class="img-circle" />
+                                <span class="sideBarText textTopic">UI Elements</span>
+                            </a>
+                        </li>
+                        <ul class="subForms ">
+                            <li>
+                                <a href="#" class="bikeRent sideBar-link">
+                                    <span class="subListIcon"><i class='bx bx-circle'><span
+                                                class="sideBarText font-size sub-Item-Color ml-05">Inline</span></i></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="bikeRent sideBar-link">
+                                    <span class="subListIcon"><i class='bx bx-circle'><span
+                                                class="sideBarText font-size sub-Item-Color ml-05">Inline</span></i></span>
+                                </a>
+                            </li>
+                        </ul>
+                        <li class="item-">
+                            <a href="#" class="bikeRent sideBar-link">
+                                <img src="assets/editRegular.png" class="img-circle" />
+                                <span class="sideBarText textTopic">Form</span>
+                            </a>
+                        </li>
+                        <ul class="subForms ">
+                            <li>
+                                <a href="#" class="bikeRent sideBar-link">
+                                    <span class="subListIcon"><i class='bx bx-circle'><span
+                                                class="sideBarText font-size sub-Item-Color ml-05">Inline</span></i></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="bikeRent sideBar-link">
+                                    <span class="subListIcon"><i class='bx bx-circle'><span
+                                                class="sideBarText font-size sub-Item-Color ml-05">Inline</span></i></span>
+                                </a>
+                            </li>
+                        </ul>
+                        <li class="item-">
+                            <a href="#" class="bikeRent sideBar-link">
+                                <img src="assets/table.png" class="img-circle" />
+                                <span class="sideBarText textTopic">Tables</span>
+                            </a>
+                        </li>
+                        <ul class="subForms ">
+                            <li>
+                                <a href="#" class="bikeRent sideBar-link">
+                                    <span class="subListIcon"><i class='bx bx-circle'><span
+                                                class="sideBarText font-size sub-Item-Color ml-05">Inline</span></i></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="bikeRent sideBar-link">
+                                    <span class="subListIcon"><i class='bx bx-circle'><span
+                                                class="sideBarText font-size sub-Item-Color ml-05">Inline</span></i></span>
+                                </a>
+                            </li>
+                        </ul>
+                        <li class="item-">
+                            <a href="#" class="bikeRent sideBar-link">
+                                <img src="assets/calendar.png" class="img-circle" />
+                                <span class="sideBarText textTopic">Calendar</span>
+                            </a>
+                        </li>
+                        <ul class="subForms ">
+                            <li>
+                                <a href="#" class="bikeRent sideBar-link">
+                                    <span class="subListIcon"><i class='bx bx-circle'><span
+                                                class="sideBarText font-size sub-Item-Color ml-05">Inline</span></i></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="bikeRent sideBar-link">
+                                    <span class="subListIcon"><i class='bx bx-circle'><span
+                                                class="sideBarText font-size sub-Item-Color ml-05">Inline</span></i></span>
+                                </a>
+                            </li>
+                        </ul>
+                        <li class="item-">
+                            <a href="#" class="bikeRent sideBar-link">
+                                <img src="assets/image.png" class="img-circle" />
+                                <span class="sideBarText textTopic">Gallery</span>
+                            </a>
+                        </li>
+                        <ul class="subForms ">
+                            <li>
+                                <a href="#" class="bikeRent sideBar-link">
+                                    <span class="subListIcon"><i class='bx bx-circle'><span
+                                                class="sideBarText font-size sub-Item-Color ml-05">Inline</span></i></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="bikeRent sideBar-link">
+                                    <span class="subListIcon"><i class='bx bx-circle'><span
+                                                class="sideBarText font-size sub-Item-Color ml-05">Inline</span></i></span>
+                                </a>
+                            </li>
+                        </ul>
+                        <li class="item-">
+                            <a href="#" class="bikeRent sideBar-link">
+                                <img src="assets/editRegular.png" class="img-circle" />
+                                <span class="sideBarText textTopic">Kanban Board</span>
+                            </a>
+                        </li>
+                        <ul class="subForms ">
+                            <li>
+                                <a href="#" class="bikeRent sideBar-link">
+                                    <span class="subListIcon"><i class='bx bx-circle'><span
+                                                class="sideBarText font-size sub-Item-Color ml-05">Inline</span></i></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="bikeRent sideBar-link">
+                                    <span class="subListIcon"><i class='bx bx-circle'><span
+                                                class="sideBarText font-size sub-Item-Color ml-05">Inline</span></i></span>
+                                </a>
+                            </li>
+                        </ul>
+                        <li class="item-">
+                            <a href="#" class="bikeRent sideBar-link">
+                                <img src="assets/mail.png" class="img-circle" />
+                                <span class="sideBarText textTopic">Mailbox</span>
+                            </a>
+                        </li>
+                        <ul class="subForms ">
+                            <li>
+                                <a href="#" class="bikeRent sideBar-link">
+                                    <span class="subListIcon"><i class='bx bx-circle'><span
+                                                class="sideBarText font-size sub-Item-Color ml-05">Inline</span></i></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="bikeRent sideBar-link">
+                                    <span class="subListIcon"><i class='bx bx-circle'><span
+                                                class="sideBarText font-size sub-Item-Color ml-05">Inline</span></i></span>
+                                </a>
+                            </li>
+                        </ul>
+                        <li class="item-">
+                            <a href="#" class="bikeRent sideBar-link">
+                                <img src="assets/plus.png" class="img-circle" />
+                                <span class="sideBarText textTopic">Pages</span>
+                            </a>
+                        </li>
+                        <ul class="subForms ">
+                            <li>
+                                <a href="#" class="bikeRent sideBar-link">
+                                    <span class="subListIcon"><i class='bx bx-circle'><span
+                                                class="sideBarText font-size sub-Item-Color ml-05">Inline</span></i></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="bikeRent sideBar-link">
+                                    <span class="subListIcon"><i class='bx bx-circle'><span
+                                                class="sideBarText font-size sub-Item-Color ml-05">Inline</span></i></span>
+                                </a>
+                            </li>
+                        </ul>
+                        <li class="item-">
+                            <a href="#" class="bikeRent sideBar-link">
+                                <img src="assets/folder.png" class="img-circle" />
+                                <span class="sideBarText textTopic">Extras</span>
+                            </a>
+                        </li>
+                        <ul class="subForms ">
+                            <li>
+                                <a href="#" class="bikeRent sideBar-link">
+                                    <span class="subListIcon"><i class='bx bx-circle'><span
+                                                class="sideBarText">Inline</span></i></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="bikeRent sideBar-link">
+                                    <span class="subListIcon"><i class='bx bx-circle'><span
+                                                class="sideBarText font-size sub-Item-Color ml-05">Inline</span></i></span>
+                                </a>
+                            </li>
+                        </ul>
+                        <li class="item-">
+                            <a href="#" class="bikeRent sideBar-link">
+                                <img src="assets/search.png" class="img-circle" />
+                                <span class="sideBarText textTopic">Search</span>
+                            </a>
+                        </li>
+                        <ul class="subForms ">
+                            <li>
+                                <a href="#" class="bikeRent sideBar-link">
+                                    <span class="subListIcon"><i class='bx bx-circle'><span
+                                                class="sideBarText font-size sub-Item-Color ml-05">Inline</span></i></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="bikeRent sideBar-link">
+                                    <span class="subListIcon"><i class='bx bx-circle'><span
+                                                class="sideBarText font-size sub-Item-Color ml-05">Inline</span></i></span>
+                                </a>
+                            </li>
+                        </ul>
+                        <li class="item-">
+                            <a href="#" class="bikeRent sideBar-link">
+                                <img src="assets/editRegular.png" class="img-circle" />
+                                <span class="sideBarText textTopic">LABELS</span>
+                            </a>
+                        </li>
+                        <ul class="subForms ">
+                            <li>
+                                <a href="#" class="bikeRent sideBar-link">
+                                    <span class="subListIcon"><i class='bx bx-circle'><span
+                                                class="sideBarText font-size sub-Item-Color ml-05">Inline</span></i></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="bikeRent sideBar-link">
+                                    <span class="subListIcon"><i class='bx bx-circle'><span
+                                                class="sideBarText font-size sub-Item-Color ml-05">Inline</span></i></span>
+                                </a>
+                            </li>
+                        </ul>
+                        <li class="item-">
+                            <a href="#" class="bikeRent sideBar-link">
+                                <img src="assets/editRegular.png" class="img-circle" />
+                                <span class="sideBarText textTopic">Documentation</span>
+                            </a>
+                        </li>
+                        <ul class="subForms ">
+                            <li>
+                                <a href="#" class="bikeRent sideBar-link">
+                                    <span class="subListIcon"><i class='bx bx-circle'><span
+                                                class="sideBarText font-size sub-Item-Color ml-05">Inline</span></i></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="bikeRent sideBar-link">
+                                    <span class="subListIcon"><i class='bx bx-circle'><span
+                                                class="sideBarText font-size sub-Item-Color ml-05">Inline</span></i></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </ul>
+                </div>
+            </div>
+
+        </aside>
+
+        <div class="content-wrapper">
+            <section class="content">
+                <div class="contentHeader">
+                    <div class="mobileNavBar">
+                        <div class="headerSearchButton">
+                            <img src="././assets/search.png" alt="Search Button" />
+                        </div>
+                        <div class="headerButtons">
+                            <div class="headerMobileOpenMainMenu">
+                                <img src="././assets/open.png" />
+                            </div>
+                            <div class="headerOpenMessageScreen">
+                                <img src="././assets/message.png" />
+                            </div>
+                            <div class="headerExpandBlackScreen">
+                                <img src="././assets/expandBlack.png" />
+                            </div>
+                            <div class="headerUserScreen">
+                                <img id="userProfile" src="././assets/user.png" />
+                            </div>
+                        </div>
+                        <div class="inputGroup">
+                            <div class="searchGroup">
+                                <span><input class="search-input" type="search" placeholder="Search By Name..."
+                                        aria-label="Search" /></span>
+                                <span class="search"><img src="././assets/search.png" class="search1" /></span>
+                                <img src="././assets/close1.png" class="closeSearch" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--    ************///////////////////Modal Profile/////************************************      -->
+                <div class="modalProfile" id="profile-modal">
+                    <div class="p-container profile">
+                        <div class="dropdownHeaderProfile">
+                            <div class="dropdownHeaderProfileLinear bg-info">
+                                <div class="menu-header-image opacity-2 dd-header-bg-6"></div>
+                                <div class="menuHeaderContent">
+                                    <div class="widgetContent">
+                                        <div class="widgetContentWrapper">
+                                            <div class="widgetContentLeft">
+                                                <img width="42" src="././assets/user.png" alt="" class="rounded-circle">
+                                            </div>
+                                            <div class="widgetContentLeft">
+                                                <div class="widgetHeading">
+                                                    Robert Murdoch
+                                                </div>
+                                                <div class="widgetContentRight">
+                                                    A short profile description
+                                                </div>
+                                            </div>
+                                            <div class="widgetContentRight">
+                                                <button class="btn-pill btn-shadow btn-shine btn btn-focus">
+                                                    Logout
+                                                </button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="scrollAreaXs">
+                            <div class="ps-show-limits">
+                                <div style="position: static;" class="ps ps--active-y" ng-reflect-disabled="false">
+                                    <div class="ps-content">
+                                        <ul class="nav flex-column">
+                                            <li class="navItemHeader">Activity</li>
+                                            <li class="nav-item"><a class="nav-link" href="#">Chat <div
+                                                        class="ml-auto badge badge-pill badge-info"></div></a></li>
+                                            <li class="nav-item"><a class="nav-link" href="#">Recover
+                                                    Password</a></li>
+                                            <li class="navItemHeader nav-item">My Account</li>
+                                            <li class="nav-item"><a class="nav-link" href="#">Settings <div
+                                                        class="ml-auto badge badge-success">New</div></a></li>
+                                            <li class="nav-item"><a class="nav-link" href="#">Messages <div
+                                                        class="ml-auto badge badge-warning">512</div></a></li>
+                                            <li class="nav-item"><a class="nav-link" href="#">Logs</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+                                        <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+                                    </div>
+                                    <div class="ps__rail-y" style="top: 0px; right: 0px; height: 150px;">
+                                        <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 88px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="nav flex-column">
+                            <li class="nav-item-divider mb-0 nav-item"></li>
+                        </ul>
+                        <div class="gridMenu">
+                            <div class="no-gutters profileItems">
+                                <div class="col-sm-6">
+                                    <button
+                                        class="btn-transition btn-transition-alt btn btn-outline-warning text-center">
+                                        <i class="pe-7s-chat icon-gradient bg-amy-crisp btn-icon-wrapper mb-2">
+                                            <img src="assets/message.png" />
+                                        </i>
+                                        Message Inbox
+                                    </button>
+                                </div>
+                                <div class="col-sm-6">
+                                    <button
+                                        class="btn-icon-vertical btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-danger text-center">
+                                        <b>
+                                            <i class="pe-7s-ticket icon-gradient bg-love-kiss btn-icon-wrapper mb-2">
+                                                <img src="assets/ticket.png" />
+                                            </i>
+                                            Suppor
+                                            Tickets
+                                        </b>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="nav flex-column">
+                            <li class="nav-item-divider nav-item"></li>
+                            <li class="nav-item-btn nav-item">
+                                <button class="btn-wide btn btn-primary btn-sm">
+                                    <i class="pe-7s-chat icon-gradient bg-amy-crisp btn-icon-wrapper mb-2">
+                                        <img src="assets/message1.png" />
+                                    </i>
+                                    Open Messages
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--    ************////////////////////////************************************      -->
+
+                <!--    ************/////////////Modal Main Menu///////////************************************      -->
+                <div class="modalMainMenu">
+                    <div class="dropdownMainMenu"
+                        style="top: 0px; left: 0px; will-change: transform; position: absolute; transform: translate(-188px, 46px);">
+                        <div class="dropdownMenuHeader">
+                            <div class="dropdownMenuHeaderInner">
+                                <div class="menuHeaderImage dd-header-bg-1"></div>
+                                <div class="menuHeaderContent">
+                                    <h5 class="menuHeaderTitle">Main Menu</h5>
+                                    <h6 class="menuHeaderSubtitle">Easy grid navigation inside dropdowns</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid-menu grid-menu-xl grid-menu-3col">
+                            <div class="no-gutters items">
+                                <div class="col-sm-6 col-xl-4">
+                                    <button class="btn-icon-vertical btn-square btn-transition btn btn-outline-link">
+                                        <i
+                                            class="pe-7s-world icon-gradient bg-night-fade btn-icon-wrapper btn-icon-lg mb-3"></i>
+                                        <a href="#home">
+                                            Home
+                                        </a>
+                                    </button>
+                                </div>
+                                <div class="col-sm-6 col-xl-4">
+                                    <button class="btn-icon-vertical btn-square btn-transition btn btn-outline-link">
+                                        <i
+                                            class="pe-7s-piggy icon-gradient bg-night-fade btn-icon-wrapper btn-icon-lg mb-3"></i>
+                                        <a href="#">
+                                            About
+                                        </a>
+                                    </button>
+                                </div>
+                                <div class="col-sm-6 col-xl-4">
+                                    <button class="btn-icon-vertical btn-square btn-transition btn btn-outline-link"><i
+                                            class="pe-7s-config icon-gradient bg-night-fade btn-icon-wrapper btn-icon-lg mb-3"></i>
+                                        <a href="#">
+                                            Service
+                                        </a>
+                                    </button>
+                                </div>
+                                <div class="col-sm-6 col-xl-4">
+                                    <button class="btn-icon-vertical btn-square btn-transition btn btn-outline-link"><i
+                                            class="pe-7s-browser icon-gradient bg-night-fade btn-icon-wrapper btn-icon-lg mb-3"></i>
+                                        <a href="#add">
+                                            Adding Items
+                                        </a>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--    ************//////////////End Modal Main Menu//////////************************************      -->
+                <div class="container-fluid">
+                    <div>
+                        <div class="mainTable app-bike scroll-hidden">
+
+                        </div>
+                        <div class="rightMenu right scroll-hidden">
+                            <div id="sidebar-wrapper">
+                                <div class="theiaStickySidebar">
+                                    <div class="sidebar section" name="Social Widget">
+                                        <div class="widget LinkList">
+                                            <div class="widget-title">
+                                                <h3 class="title">
+                                                    Social Plugin
+                                                </h3>
+                                            </div>
+                                            <div class="widget-content">
+                                                <ul class="social-counter social social-color">
+                                                    <li class="facebook">
+                                                        <a href="#" target="_blank" title="facebook">
+                                                            <img src="assets/facebook.png" alt="facebook">
+                                                        </a>
+                                                    </li>
+                                                    <li class="twitter">
+                                                        <a href="#" target="_blank" title="twitter">
+                                                            <img src="assets/twitter.png" alt="twitter">
+                                                        </a>
+                                                    </li>
+                                                    <li class="linkedin">
+                                                        <a href="#" target="_blank" title="linkedin">
+                                                            <img src="assets/linkedin.png" alt="linkedin">
+                                                        </a>
+                                                    </li>
+                                                    <li class="reddit">
+                                                        <a href="#" target="_blank" title="reddit">
+                                                            <img src="assets/reddit.png" alt="reddit">
+                                                        </a>
+                                                    </li>
+                                                    <li class="pinterest">
+                                                        <a href="#" target="_blank" title="pinterest">
+                                                            <img src="assets/pinterest.png" alt="pinterest">
+                                                        </a>
+                                                    </li>
+                                                    <li class="vk">
+                                                        <a href="#" target="_blank" title="vk">
+                                                            <img src="assets/vk.png" alt="vk">
+                                                        </a>
+                                                    </li>
+                                                    <li class="instagram">
+                                                        <a href="#" target="_blank" title="instagram">
+                                                            <img src="assets/instagram.png" alt="instagram">
+                                                        </a>
+                                                    </li>
+                                                    <li class="youtube">
+                                                        <a href="#" target="_blank" title="youtube">
+                                                            <img src="assets/youtube.png" alt="youtube">
+                                                        </a>
+                                                    </li>
+                                                    <li class="whatsapp">
+                                                        <a href="#" target="_blank" title="whatsapp">
+                                                            <img src="assets/whatsapp.png" alt="whatsapp">
+                                                        </a>
+                                                    </li>
+                                                    <li class="rss">
+                                                        <a href="#" target="_blank" title="rss">
+                                                            <img src="assets/rss.png" alt="rss">
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="sidebar common-widget section" name="Sidebar Right">
+                                        <div class="widget PopularPosts">
+                                            <div class="widget-title">
+                                                <h3 class="title">
+                                                    Popular Posts
+                                                </h3>
+                                            </div>
+                                            <div class="widget-content">
+                                                <div class="post">
+                                                    <div class="post-content">
+                                                        <a class="post-image-link"
+                                                            href="">
+                                                            <img alt="Easiest Ice Cream You’ll Ever Make. No Ice-cream Maker"
+                                                                class="post-thumb lazy-yard"
+                                                                src="assets/bicycle1.jpg">
+                                                        </a>
+                                                        <div class="post-info">
+                                                            <h2 class="post-title">
+                                                                <a
+                                                                    href="">Easiest
+                                                                    Ice Cream You’ll Ever Make. No Ice-cream Maker</a>
+                                                            </h2>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="post">
+                                                    <div class="post-content">
+                                                        <a class="post-image-link"
+                                                            href="">
+                                                            <img alt="Senators Introduce Bill to Safely Bring Back Cruising in US"
+                                                                class="post-thumb lazy-yard"
+                                                                src="assets/bicycle2.jpg">
+                                                        </a>
+                                                        <div class="post-info">
+                                                            <h2 class="post-title">
+                                                                <a
+                                                                    href="">Senators
+                                                                    Introduce Bill to Safely Bring Back Cruising in US</a>
+                                                            </h2>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="post">
+                                                    <div class="post-content">
+                                                        <a class="post-image-link"
+                                                            href="">
+                                                            <img alt="Senators Introduce Bill to Safely Bring Back Cruising in US"
+                                                                class="post-thumb lazy-yard"
+                                                                src="assets/bicycle3.jpg">
+                                                        </a>
+                                                        <div class="post-info">
+                                                            <h2 class="post-title">
+                                                                <a
+                                                                    href="">Senators
+                                                                    Introduce Bill to Safely Bring Back Cruising in US</a>
+                                                            </h2>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="widget HTML">
+                                            <div class="widget-title">
+                                                <h3 class="title">
+                                                    Subscribe Us
+                                                </h3>
+                                            </div>
+                                            <div class="widget-content">
+                                                <div class="videoWrapper">
+                                                    <!-- Copy & Pasted from YouTube -->
+                                                    <iframe width="560" height="349" src=""
+                                                        frameborder="0" allowfullscreen=""></iframe>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="widget HTML">
+                                            <div class="widget-title">
+                                                <h3 class="title">
+                                                    Facebook
+                                                </h3>
+                                            </div>
+                                            <div class="widget-content">
+                                                <center>
+                                                    <div class="fb-page fb_iframe_widget" data-href="https://www.facebook.com/way2themes"
+                                                        data-width="360" data-small-header="false" data-adapt-container-width="true"
+                                                        data-hide-cover="false" data-show-facepile="true" fb-xfbml-state="rendered"
+                                                        fb-iframe-plugin-query="adapt_container_width=true&amp;app_id=&amp;container_width=298&amp;hide_cover=false&amp;href=https%3A%2F%2Fwww.facebook.com%2Fway2themes&amp;locale=en_US&amp;sdk=joey&amp;show_facepile=true&amp;small_header=false&amp;width=360">
+                                                        <span
+                                                            style="vertical-align: top; width: 0px; height: 0px; overflow: hidden;"><iframe
+                                                                name="f39ca0851195c04" width="360px" height="1000px"
+                                                                data-testid="fb:page Facebook Social Plugin"
+                                                                title="fb:page Facebook Social Plugin" frameborder="0"
+                                                                allowtransparency="true" allowfullscreen="true" scrolling="no"
+                                                                allow="encrypted-media"
+                                                                src=""
+                                                                style="border: none; visibility: visible; width: 0px; height: 0px;"
+                                                                __idm_frm__="1158"></iframe></span>
+                                                    </div>
+                                                </center>
+                                            </div>
+                                        </div>
+                                        <div class="widget Label">
+                                            <div class="widget-title">
+                                                <h3 class="title">
+                                                    Categories
+                                                </h3>
+                                            </div>
+                                            <div class="widget-content list-label">
+                                                <ul class="categorieContent">
+                                                    <li>
+                                                        <a class="label-name"
+                                                            href="">
+                                                            Business
+                                                            <span class="label-count">(3)</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="label-name"
+                                                            href="">
+                                                            Photography
+                                                            <span class="label-count">(2)</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="label-name"
+                                                            href="">
+                                                            Technology
+                                                            <span class="label-count">(2)</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--  ******** /////////////// modal login **************//////////////////////////-->
+                <div class="popupLogin">
+                    <div class="popupHeader">
+
+                        <i id="closePopup">
+                            <img src="assets/close1.png">
+                        </i>
+                        <h3 class="card-title">
+                            <span>Login</span>
+                        </h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <form id="quickForm">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Email address</label>
+                                <input type="email" name="email" class="form-control" id="exampleInputEmail1"
+                                    placeholder="Enter email">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Password</label>
+                                <input type="password" name="password" class="form-control" id="exampleInputPassword1"
+                                    placeholder="Password">
+                            </div>
+                            <div class="form-group mb-0">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" name="terms" class="custom-control-input" id="exampleCheck1">
+                                    <label class="custom-control-label" for="exampleCheck1">I agree to the <a
+                                            href="#">terms of service</a>.</label>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                    <!-- </div>  -->
+                    <!-- <div class="popupBody">
+
+                    </div> -->
+                </div>
+                                <!--  ******** /////////////// modal login **************//////////////////////////-->
+            </section>
+
         </div>
 
-        <div class="footer">
-            <div class="footer__menu">
+        <div class="footer" id="footer">
+            <div class="footerContent">
                 <div class="menu-1"><a href="#home">Home</a></div>
                 <div class="menu-2"><a href="#">About</a></div>
                 <div class="menu-3"><a href="#">Service</a></div>
@@ -73,8 +869,10 @@
         </div>
 
     </div>
-    <!-- <script src="src/js/box-Modal.js" defer></script> -->
-    <script src="js/app.js" type="module" defer></script> 
+
+
+    <script src="main.js" type="module" defer></script><!---->
+
 
 </body>
 

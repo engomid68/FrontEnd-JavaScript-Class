@@ -31,6 +31,13 @@ export default class AppController {
 					controller: AddController
 				});
 				break;
+			case `#add?id=${30}`:
+				this.initController({
+					template: AddTemplate,
+					view: AddViewer,
+					controller: AddController
+				});
+				break;
 			default:
 			  alert('not found =>', route);
 		}

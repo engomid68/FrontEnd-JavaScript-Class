@@ -1,0 +1,67 @@
+/******        Style For Form         **********/
+.form {
+    padding: 8px;
+    background: #F9F9F9;
+    border: #CCC 1px solid;
+    border-radius: 8px;    
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;    
+    box-shadow:2px 2px 3px #666;    
+    -moz-box-shadow:2px 2px 3px #666;
+    -webkit-box-shadow:2px 2px 3px #666;  
+    min-width: 192px;  
+    margin-bottom: 35px;    
+    &:focus-within {
+        background: #F0F0F0;
+        border: #3399FF 1px solid;
+    }
+}
+
+label {
+    &.labelAddingItem {
+        display: inline-block;
+        width: 100px;
+        height: 50px;
+    }
+}
+
+.input {
+    background: #F9F9F9;
+    padding: 4px;
+    border: #CCC 1px solid;
+    border-radius: 8px;    
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;        
+    box-shadow:2px 2px 3px #666;    
+    -moz-box-shadow:2px 2px 3px #666;
+    -webkit-box-shadow:2px 2px 3px #666;    
+    outline: 0;    
+    &:hover {
+        background: #F5F5F5;
+        border: #92C9FF 1px solid;
+    }    
+    &:focus {
+        background: #F0F0F0;
+        border: #3399FF 1px solid;
+    }    
+    &:invalid {
+        box-shadow: 0 0 13px -6px red;
+    }
+}
+
+.addButton {
+    background: #007bff;
+    color: #FFFFFF;
+    padding: 4px;
+    border-radius: 8px;    
+    box-shadow:2px 2px 5px rgba(0 ,0 ,0 ,0.3);     
+    cursor: pointer;    
+    &:active {
+        background: #0099cc;
+    }
+}
+
+.addItems {
+    display: none;
+}
+/******        Style For Form         **********/

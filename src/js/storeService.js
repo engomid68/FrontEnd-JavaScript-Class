@@ -1,7 +1,12 @@
 export default class StoreService {
 	
 	constructor() {
-		this.bikes = [];
+		this.bikes = [];		
+		
+		this.store = {
+			domain: []
+		};
+		this.user = null;
 	}
 
 	setBikes(bikes) {
@@ -39,4 +44,11 @@ export default class StoreService {
 		this.bikes.splice(idx,1, bikeId);
 	}
 
+	setUser(user) {
+		this.user = user;
+	}
+
+	getUser() {
+		return this.user;
+	}
 }

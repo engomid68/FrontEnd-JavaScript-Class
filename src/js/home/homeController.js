@@ -20,6 +20,11 @@ export default class HomeController {
 		homeViewer.bindModalEditItem(this.editItem.bind(this));
 		homeViewer.bindModalDeleteItem(this.deleteItem.bind(this));
 		homeViewer.bindSearchInput(this.searchItem.bind(this));
+		// homeViewer.bindAddItemAfterScroll();
+		homeViewer.hiddenTableBody();
+		homeViewer.showTableBody();
+		homeViewer.closeTable();
+		homeViewer.expandScreen();
 	}
 
 	init() {
@@ -66,16 +71,7 @@ export default class HomeController {
 	async editItem(bikeId) {
 		let bike = this.storeService.getBike(bikeId);
 		console.log('BIKE DATA =>', bike);
-		let btnEditRows = {
-			id: bike.id,
-			createdAt: bike.createdAt,
-			name: bike.name,
-			country: bike.country,
-			color: bike.color,
-		};
-		console.log("btnEditRows "+btnEditRows);
-		localStorage.setItem('editItem', JSON.stringify(btnEditRows));
-		document.location.hash = '#add';	
+		location.href = `#add?id=` + bikeId;	
 	}
 
 	showModalItem(bikeId) {

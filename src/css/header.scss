@@ -1,0 +1,123 @@
+
+.header {
+    display: flex;
+    position: -webkit-sticky;
+    position: relative;
+    top: 0;
+    flex-direction: row;
+    align-items: center;
+    background-color: #f4f6f9;
+    height: 10vh;
+    padding: 15px;
+    z-index: 999;
+    margin-left: 180px;
+    background-color: #fff;
+    box-shadow: 0 5px 5px rgb(0 0 0 / 5%), 0 5px 5px rgb(0 0 0 / 4%) !important;
+    .headerButton {
+        display: block;
+        cursor: pointer;
+        .openLeftMenuMobile {
+            display: none;
+        } 
+        .bikeLogoMobile {
+            display: none;
+        }
+        .headerExtraMenu {
+            display: none;
+        }
+        .headerLogo {
+            display: none;
+        }
+    }
+
+    .signupButton {
+        position: absolute;
+        cursor: pointer;
+        right: 7px;
+        background-color: #ff6d0e;
+        padding: 4px;
+        border-radius: 5px;
+        font-size: 14px;
+        outline: none;
+        color: #ffffff;
+        justify-content: center;
+        align-items: center;
+        border: 0;
+        box-shadow: 2px 2px 5px rgba(0 ,0 ,0 ,0.075);
+        top: 4px;
+        &:hover {
+            background-color: orange;
+        }
+        .title {
+            margin: 5px;
+            float: left;
+        }
+        .icon {
+            float: right;
+            margin: 5px;
+        }
+    }
+
+    .headerMenu {
+        display: flex;
+        flex-direction: row;
+        right: 0;
+        z-index: 1000;
+    }
+    [class^="navItem-"] {
+        padding-left: 15px;
+        cursor: pointer;
+        a {
+            text-decoration: none;
+            color: #000;
+
+            &:hover {
+                color: orange;
+            }
+
+            &:active {
+                color: #000;
+            }
+
+            &:link {
+                color: #000;
+            }
+        }
+    }
+}
+.popupLogin {
+    height: 350px;
+    width: 300px;
+    min-width: 300px;
+    background-color: #fff;
+    position: absolute;
+    z-index: 1200;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50% ,-50%);
+    box-shadow: 2px 2px 5px rgba(0 ,0 ,0 ,0.3);
+    opacity: 0;
+    display: none;
+    transform: all 0.3s linear;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    &.active {
+        opacity: 1;
+        display: block;
+    }
+}
+
+.popupHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #007bff;
+    border-top-left-radius: 5px ;
+    border-top-right-radius: 5px ;
+    #closePopup {
+        cursor: pointer;
+    }
+}
+
+
+

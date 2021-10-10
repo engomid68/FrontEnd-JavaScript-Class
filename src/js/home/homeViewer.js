@@ -12,7 +12,8 @@ export default class HomeViewer extends AppViewer {
 
     async checkLoadContent() {
 		await this.loadContent('./js/home/home.html');
-		this.$home = qs('.home');
+        this.$container = qs('.container');
+		this.$home = qs('#home' ,this.$container);
 		this.$table = qs('.table', this.$home);
 		this.$tBody = qs('.response', this.$table);
 		this.$modal = qs('#bounce-modal.modal', this.$home);
@@ -24,6 +25,10 @@ export default class HomeViewer extends AppViewer {
 		this.$country = qs('.boxes-9'); 
 		this.$color = qs('.boxes-10'); 
         this.$searchInput = qs('.search-input');
+        this.$hiddenTableBody  = qs('#hiddenBody');
+        this.$showTableBody  = qs('#showBody');
+        this.$closeTable  = qs('.close');
+        this.$expandScreen  = qs('#expandScreen');
 	}
 
     activeListLoading() {
@@ -119,5 +124,62 @@ export default class HomeViewer extends AppViewer {
                 const result = await handler(searchInput);
             })()
         });
+    }
+
+    // bindAddItemAfterScroll() {
+    //     $on(this.$tBody,'scroll', () => {
+    //     // window.addEventListener('scroll', () => {
+    //         const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+            
+    //         console.log( { scrollTop, scrollHeight, clientHeight });
+            
+    //         if(clientHeight + scrollTop >= scrollHeight - 5) {
+    //             // console.log("bindAddItemAfterScroll");
+    //             // show the loading animation
+    //             this.showLoading();
+    //         }
+    //     });
+    // }
+
+    // showLoading() {
+    //     const loadingScroll = document.querySelector('.loadingScroll');
+    //     loadingScroll.classList.add('show');
+    //     setTimeout(getPost, 1000)
+    // }
+
+    hiddenTableBody() {
+        $on(this.$hiddenTableBody,'click', () => {
+            this.$tBody.classList.add("hidden");
+            this.$showTableBody.classList.remove("hidden");
+            this.$hiddenTableBody.classList.add("hidden");
+        })
+    }
+
+    showTableBody() {
+        $on(this.$showTableBody,'click', () => {
+            this.$tBody.classList.remove("hidden");
+            this.$showTableBody.classList.add("hidden");
+            this.$hiddenTableBody.classList.remove("hidden");
+        })
+    }
+
+    closeTable() {
+        $on(this.$closeTable,'click', () => {
+            this.$home.classList.add("hidden");
+        })
+    }
+
+    expandScreen() {
+        $on(this.$expandScreen,'click', () => {
+            this.$tBody.requestFullscreen()
+            .then(function() {
+                // element has entered fullscreen mode successfully
+            })
+            .catch(function(error) {
+                // element could not enter fullscreen mode
+                // error message
+                console.log(error.message);
+            });
+        })
     }
 }

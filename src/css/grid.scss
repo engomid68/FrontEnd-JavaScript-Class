@@ -4,17 +4,22 @@
   width: 16.66%;
 }
 
-.col-2-L { 
-  width: 16.66%;
-}
-
-.col-8 { 
-  width: 66.66%; 
-}
-
-[class ^="col-"] {
+.rightMenu { 
+  width: 35%;
   float: left;
-  padding: 15px;
+  padding: 0px;
 }
 
+.mainTable { 
+  width: 62%;
+  float: left;
+  padding: 0px;
+}
 
+.container-fluid {
+  width: 100%;
+  padding-right: 7.5px;
+  padding-left: 7.5px;
+  margin-right: auto;
+  margin-left: auto;
+}
