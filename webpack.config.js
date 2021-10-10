@@ -4,6 +4,7 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
     entry: './src/js/app.js',
+    mode: 'development',
     output: {
         filename: 'main.js',
         path: path.resolve(__dirname, 'dist'),
@@ -18,26 +19,26 @@ module.exports = {
                     "sass-loader"
                 ]
             },
+            // {
+            //     test: /\.(jpg|png)$/,
+            //     use: {
+            //         loader: 'url-loader',
+            //     },
+            // },
             {
-                test: /\.(jpg|png)$/,
-                use: {
-                    loader: 'url-loader',
-                },
+                test: /\.html$/,
+                use: [
+                    'html-loader'
+                ]
             },
             // {
-            //     test: /\.html$/,
-            //     use: [
-            //         'html-loader'
-            //     ]
-            // },
-            // {
-            //     test: /\.(gif|png|jpe?g)$/,
+            //     test: /\.(gif|png|jpg|svg)$/,
             //     use: [
             //         {
             //             loader: 'file-loader',
             //             options: {
-            //                 name: '[name].[ext]',
-            //                 outputPath: 'imgs'
+            //                 name: '[name].[hash].[ext]',
+            //                 outputPath: 'assets'
             //             }
             //         }
             //     ]
@@ -47,16 +48,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, "src", "index.html")
+            template: path.resolve(__dirname, "src", "index.html"),
         }),
-        new CopyWebpackPlugin({
-            patterns: [
-                {
-                    from: "src/assets/*",
-                    to: 'dist/assets/'
-                    // to: 'dist/assets/[name].[contenthash][ext]'
-                },
-            ],
-        }),
-    ],
+    ]
 };
