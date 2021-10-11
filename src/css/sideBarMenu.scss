@@ -12,7 +12,7 @@
 }
 
 [class*="sidebar-dark-"] {
-    background: linear-gradient(#66615b,#000 80%);
+    background: linear-gradient(#66615b, #000 80%);
 }
 
 //********************************* ScrollBar Hidden**********************
@@ -50,7 +50,7 @@
     overflow-x: hidden;
     overflow-y: scroll;
     .brandLogoSidebar {
-        height: 55px;
+        height: 6.4vh;
         margin-top: 20px;
         margin-bottom: 5px;
         border: 0.5px solid #88898a;
@@ -79,7 +79,7 @@
                 float: left;
                 line-height: 0.8;
                 margin-right: 5px;
-                margin-top: 3px;
+                margin-top: 8px;
                 margin-left: 5px;
                 max-height: 70px;
                 margin-bottom: 15px;
@@ -112,11 +112,20 @@ aside {
 [class^="item-"] {
     list-style-type: none;
     transition: 1s;
-
+    &::after {
+        content: "\2B9F";
+        float: right;
+        color: white;
+        font-weight: 400;
+        font-family: FontAwesome;
+        font-size: 6px;
+        margin: 10px 5px 0px 0px;
+        transition: color 0.17s;
+    }
     .sideBarText {
         position: fixed;
         left: 45px;
-        opacity: 1;    
+        opacity: 1;
         &:hover {
             color: orange;
         }
@@ -124,6 +133,16 @@ aside {
     &.active {
         background-color: rgb(126, 126, 126);
         color: white;
+        &::after {
+            content: "\2B9D" !important;
+            float: right;
+            color: white;
+            font-weight: 400;
+            font-family: FontAwesome;
+            font-size: 6px;
+            margin: 10px 5px 0px 0px;
+            transition: color 0.17s;
+        }
     }
     &:hover {
         background: #343a40;
@@ -135,6 +154,9 @@ aside {
     overflow: hidden;
     transition: max-height 0.2s ease-out;
     background-color: #343a40;
+    .subFormsText {
+        margin-top: 4px;
+    }
     li:hover {
         background-color: rgb(129, 127, 127);
         color: white !important;
@@ -236,7 +258,7 @@ aside {
     .main-sidebar {
         transition: width 0.3s ease-in-out;
     }
-    .textTopic  {
+    .textTopic {
         color: whitesmoke;
     }
 }

@@ -23,7 +23,7 @@
             text-align: start;
             appearance: auto;
             // background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
-            width: 150px;            
+            width: 150px;
             cursor: text;
             margin: 0em;
             font: 400 13.3333px Arial;
@@ -32,27 +32,27 @@
             // display: none;
             // .searchGroup {
             //     display: none;
-                .search-input {
-                    .search {
-                        background: #e9ecef !important;
-                        margin-top: 15px;
-                    }
-                    .closeSearch {
-                        background: #e9ecef !important;
-                    }
+            .search-input {
+                .search {
+                    background: #e9ecef !important;
+                    margin-top: 15px;
                 }
+                .closeSearch {
+                    background: #e9ecef !important;
+                }
+            }
             // }
         }
         .search-input {
             padding-left: 2rem;
             line-height: 1.7;
             border-radius: 50rem;
-            height: calc(1.5em + .625rem + -8px);
-            padding: .3125rem 1rem;
+            height: calc(1.5em + 0.625rem + -8px);
+            padding: 0.3125rem 1rem;
             font-size: 1rem;
             font-weight: 400;
             color: #344050;
-            width: 75%;  
+            width: 75%;
             background: #e9ecef;
             // background-clip: padding-box;
             border: 1px solid #d8e2ef;
@@ -75,7 +75,7 @@
 
 .search-input {
     transform: translateX(-100px);
-    transition: transform .25s , opacity .25s ease-in-out ;
+    transition: transform 0.25s, opacity 0.25s ease-in-out;
     width: 5%;
     opacity: 0;
     visibility: hidden;
@@ -84,7 +84,6 @@
         opacity: 1;
         visibility: visible;
         transform: translateX(0px);
-
     }
 }
 
@@ -93,6 +92,9 @@
         .content {
             .contentHeader {
                 .mobileNavBar {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: flex-end;
                     .inputGroup {
                         .searchGroup {
                             img.search1 {
@@ -116,5 +118,4 @@
             }
         }
     }
- }
-
+}

@@ -3,7 +3,6 @@ import AppController from './appController.js';
 import StoreService from './storeService.js';
 import { $on } from './helpers.js';
 
-import 'boxicons';
 import '../css/app.scss';
 import './slideMenu.js';
 

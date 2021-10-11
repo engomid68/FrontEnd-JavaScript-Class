@@ -8,7 +8,7 @@
     width: 100%;
 }
 
-.sidebar {
+.rightMenu {
     .widget {
         position: relative;
         overflow: hidden;
@@ -79,7 +79,6 @@ strike,
 strong,
 sub,
 sup,
-
 var {
     padding: 0;
     border: 0;
@@ -97,27 +96,138 @@ var {
     }
 }
 .sidebar {
-    .widget-title > h3 {
-        position: relative;
-        display: block;
-        height: 34px;
-        font-size: 17px;
-        color: #203656;
-        font-weight: 600;
-        line-height: 34px;
-        padding: 0;
-        margin: 0;
-        text-align: center;
-        border-bottom: 2px solid #f2f2f6;
+    .widget-title {
+        cursor: move;
+        > h3 {
+            position: relative;
+            display: block;
+            height: 34px;
+            font-size: 17px;
+            color: #203656;
+            font-weight: 600;
+            line-height: 34px;
+            padding: 0;
+            margin: 0;
+            float: left;
+            border-bottom: 2px solid #f2f2f6;
+        }
+        .cart-header-btn {
+            display: flex;
+            flex-direction: row;
+            justify-content: right;
+        }
+    }
+    .card-calender {
+        background: #28a745 linear-gradient(
+            180deg,#48b461,#28a745) repeat-x!important;
+        color: #fff;
+        .card-calender-header {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            .previous-month , .next-month ,.name-month{
+                cursor: pointer;
+                width: 10%;
+                opacity: .8;
+                height: 28px;
+                text-align: center;
+                &:hover {
+                    opacity: .5;
+                    background: rgb(22, 128, 57);
+                    border-radius: 5px;
+                }
+            }
+            .name-month {
+                width: 70%;
+            }
+        }
     }
 }
-.sidebar {
+.rightMenu {
     .widget-content {
         float: left;
         width: 100%;
         box-sizing: border-box;
         padding: 15px 0;
         margin: 0;
+        .widget-content-body {
+            .direct-chat-msg {
+                margin-bottom: 10px !important;
+                &.right {
+                    .direct-chat-img {
+                        float: right;
+                    }
+                    .direct-chat-text {
+                        background: #007bff;
+                        color: cornsilk;
+                        margin-left: 0;
+                        margin-right: 50px;
+                        &::after , &::before {
+                            border-width: 6px;
+                            margin-top: -6px;
+                            border: 5px solid transparent;
+                            border-left-color: #007bff;
+                            content: " ";
+                            height: 0;
+                            pointer-events: none;
+                            position: absolute;
+                            left: 100%;
+                            top: 17px;
+                            width: 0;
+                        }
+                    }
+                }
+                .direct-chat-infos {
+                    display: block;
+                    font-size: 15px;
+                    margin-bottom: 2px;
+                    &::after {
+                        display: block;
+                        clear: both;
+                        content: "";
+                    }
+                    .direct-chat-name {
+                        font-weight: 600;
+                    }
+                    .float-left {
+                        float: left;
+                    }
+                    .float-right {
+                        float: right;
+                    }
+                    .direct-chat-times {
+                        color: #697582;
+                    }
+                }
+                .direct-chat-img {
+                    float: left;
+                    height: 40px;
+                    width: 40px;
+                    border-radius: 50%;
+                }
+                .direct-chat-text {
+                    margin: 10px 0 0 55px;
+                    background: gainsboro;
+                    border-radius: 5px;
+                    position: relative;
+                    padding: 5px 10px;
+                    &::before,
+                    &::after {
+                        border-width: 6px;
+                        margin-top: -6px;
+                        border: 5px solid transparent;
+                        border-right-color: #d2d6de;
+                        content: " ";
+                        height: 0;
+                        pointer-events: none;
+                        position: absolute;
+                        right: 100%;
+                        top: 17px;
+                        width: 0;
+                    }
+                }
+            }
+        }
         .post {
             overflow: hidden;
             padding: 15px 0 0;
@@ -147,7 +257,7 @@ var {
                         a {
                             display: block;
                             color: #203656;
-                            transition: color .17s;
+                            transition: color 0.17s;
                             font-size: 15px;
                             font-weight: 400;
                             line-height: 1.5em;
@@ -184,8 +294,8 @@ ul {
     li {
         opacity: 1;
         &:hover {
-            opacity: .5;
-            transition: opacity .17s;
+            opacity: 0.5;
+            transition: opacity 0.17s;
         }
     }
     .facebook {

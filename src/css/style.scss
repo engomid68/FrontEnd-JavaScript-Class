@@ -32,6 +32,12 @@
         .headerButtons {
             display: flex;
             flex-direction: row;
+            .headerUserScreen {
+                margin-left: 5px;
+            }
+            .headerOpenMessageScreen {
+                margin-left: 5px;
+            }
         }
         .inputGroup {
             display: none;
@@ -227,7 +233,7 @@
 }
 .font-size {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 13px;
+    font-size: 11px;
 }
 .sub-Item-Color {
     color: rgb(192, 192, 192);
